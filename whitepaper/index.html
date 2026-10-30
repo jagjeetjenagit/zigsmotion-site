@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ZigsMotion | Whitepaper &amp; Investment Proposal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ZigsMotion whitepaper and investment proposal: the AI film studio, its eleven modules, traction, market, business model and plan for Qatar.">
+<meta property="og:title" content="ZigsMotion | Whitepaper &amp; Investment Proposal">
+<meta property="og:description" content="ZigsMotion whitepaper and investment proposal: the AI film studio, its eleven modules, traction, market, business model and plan for Qatar.">
+<meta property="og:image" content="https://zigsmotion.com/showcase/sizzle.jpg">
+<link rel="canonical" href="https://zigsmotion.com/whitepaper/">
+<base target="_blank">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --ink: #04060C; --ink2: #0A1120; --panel: #0D1628; --line: rgba(120,190,255,.16);
+    --fg: #F4F7FB; --fg2: #A9B6C9; --fg3: #6E7E96;
+    --c1: #6FE0FF; --c2: #38A8F8; --c3: #2F7BF0;
+    --grad: linear-gradient(100deg, #6FE0FF 0%, #38A8F8 48%, #2F7BF0 100%);
+  }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body { margin: 0; background: var(--ink); color: var(--fg); font: 400 10.4pt/1.55 Inter, system-ui, sans-serif; }
+  .page {
+    width: 210mm; height: 297mm; position: relative; overflow: hidden; page-break-after: always;
+    padding: 20mm 18mm 18mm;
+    background:
+      radial-gradient(120mm 90mm at 0% 0%, rgba(56,168,248,.16), transparent 70%),
+      radial-gradient(110mm 90mm at 100% 100%, rgba(47,123,240,.14), transparent 70%),
+      var(--ink);
+  }
+  .page:last-child { page-break-after: auto; }
+  /* header / footer on content pages */
+  .run { position: absolute; left: 18mm; right: 18mm; top: 9mm; display: flex; justify-content: space-between; align-items: center; font: 600 6.6pt/1 Orbitron, sans-serif; letter-spacing: .28em; color: var(--fg3); text-transform: uppercase; }
+  .run img { height: 4.2mm; }
+  .foot { position: absolute; left: 18mm; right: 18mm; bottom: 8mm; display: flex; justify-content: space-between; font-size: 7pt; color: var(--fg3); border-top: 1px solid var(--line); padding-top: 2.5mm; }
+  h1, h2, h3 { font-family: Sora, sans-serif; letter-spacing: -.03em; margin: 0; }
+  h2 { font-size: 24pt; line-height: 1.05; font-weight: 800; margin-bottom: 4mm; }
+  h3 { font-size: 12.5pt; font-weight: 700; margin: 0 0 1.5mm; }
+  .eyebrow { font: 700 7pt/1 Orbitron, sans-serif; letter-spacing: .32em; text-transform: uppercase; color: var(--c1); margin-bottom: 3.5mm; display: block; }
+  .g { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  p { margin: 0 0 3mm; color: var(--fg2); }
+  p.lead { font-size: 12pt; line-height: 1.55; color: var(--fg); }
+  b, strong { color: var(--fg); font-weight: 600; }
+  ul { margin: 0 0 3mm; padding-left: 4.5mm; color: var(--fg2); }
+  li { margin-bottom: 1.2mm; }
+  li::marker { color: var(--c2); }
+  .card { border: 1px solid var(--line); border-radius: 4mm; padding: 4.5mm 5mm; background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.01) 50%), var(--panel); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+  .stat b { display: block; font: 800 20pt/1 Sora, sans-serif; letter-spacing: -.03em; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 1.5mm; }
+  .stat span { font-size: 8pt; color: var(--fg2); line-height: 1.35; display: block; }
+  .shot { width: 100%; border-radius: 3mm; border: 1px solid var(--line); display: block; }
+  table { width: 100%; border-collapse: collapse; font-size: 8.8pt; }
+  th { text-align: left; font: 700 6.6pt/1.2 Orbitron, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--c1); padding: 2.4mm 2mm; border-bottom: 1px solid var(--line); }
+  td { padding: 2.3mm 2mm; border-bottom: 1px solid rgba(120,190,255,.08); color: var(--fg2); vertical-align: top; }
+  td b { color: var(--fg); }
+  .tbc { display: inline-block; font: 600 7pt/1 Inter; color: #FFD27A; border: 1px dashed rgba(255,210,122,.55); border-radius: 1.5mm; padding: .6mm 1.5mm; }
+  .src { font-size: 6.8pt; color: var(--fg3); line-height: 1.45; }
+  .src a { color: var(--fg3); text-decoration: none; }
+  .tag { display: inline-block; font: 600 6.4pt/1 Orbitron; letter-spacing: .16em; text-transform: uppercase; color: var(--c1); border: 1px solid rgba(111,224,255,.35); border-radius: 99px; padding: 1.2mm 2.4mm; margin: 0 1.5mm 1.5mm 0; }
+  .num { font: 700 7pt/1 Orbitron; color: var(--c2); }
+
+  /* cover */
+  .cover { padding: 0; }
+  .cover .bg { position: absolute; inset: 0; background: url(img/camp-night.jpg) center/cover; opacity: .5; }
+  .cover .bg2 { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(4,6,12,.55) 0%, rgba(4,6,12,.35) 35%, rgba(4,6,12,.92) 70%, var(--ink) 100%); }
+  .cover .in { position: absolute; left: 20mm; right: 20mm; bottom: 26mm; }
+  .cover .logo { position: absolute; left: 20mm; top: 20mm; height: 10mm; }
+  .cover h1 { font-size: 40pt; line-height: 1; font-weight: 800; margin: 5mm 0 6mm; }
+  .cover .sub { font-size: 13pt; color: var(--fg); max-width: 150mm; line-height: 1.5; }
+  .cover .meta { margin-top: 10mm; display: flex; gap: 10mm; font-size: 8.5pt; color: var(--fg2); }
+  .cover .meta b { display: block; font: 700 6.6pt/1.4 Orbitron; letter-spacing: .2em; text-transform: uppercase; color: var(--c1); }
+  .refs { margin: 4mm 0; padding-left: 6mm; font-size: 8.6pt; line-height: 1.45; }
+  .refs li { margin-bottom: 1.6mm; }
+  .refs a { color: #2F7BF0; word-break: break-all; }
+  sup { font-size: .62em; color: #2F7BF0; margin-left: .3mm; }
+</style>
+<style media="screen">
+  body { background: #02040A; padding: 72px 0 32px; overflow-x: hidden; }
+  .wpwrap { width: 210mm; margin: 0 auto; }
+  .wpwrap .page { margin: 0 0 24px; border-radius: 10px; box-shadow: 0 30px 80px -30px #000, 0 0 0 1px rgba(120,190,255,.14); }
+  .wpbar { position: fixed; top: 0; left: 0; right: 0; z-index: 10; height: 58px; display: flex; align-items: center; gap: 14px; padding: 0 16px;
+    background: rgba(3,5,10,.86); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(120,190,255,.16); font: 600 14px Inter, system-ui, sans-serif; }
+  .wpbar a { color: #F4F7FB; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+  .wpbar img { height: 22px; }
+  .wpbar .t { color: #A9B6C9; font-weight: 500; }
+  .wpbar .back { margin-left: auto; color: #A9B6C9; }
+  .wpbar .dl { padding: 10px 16px; border-radius: 99px; background: linear-gradient(90deg, #6FE0FF, #2F7BF0); color: #03060D; font-weight: 700; white-space: nowrap; }
+  @media (max-width: 640px) { .wpbar .t { display: none; } .wpbar { gap: 10px; } .wpbar .dl { padding: 9px 12px; font-size: 13px; } }
+</style>
+<style media="print"> .wpbar { display: none; } </style>
+</head>
+<body>
+<nav class="wpbar"><a href="../" target="_self"><img src="img/zigsmotion-logo.svg" alt="ZigsMotion"></a><span class="t">Whitepaper &amp; Investment Proposal</span>
+<a class="back" href="../" target="_self">Studio</a><a class="dl" href="../ZigsMotion-Whitepaper.pdf" download target="_self">Download PDF ↓</a></nav>
+<div class="wpwrap">
+
+<!-- ═════════ 1 · COVER ═════════ -->
+<section class="page cover">
+  <div class="bg"></div><div class="bg2"></div>
+  <img class="logo" src="img/zigsmotion-logo.svg" alt="ZigsMotion">
+  <div class="in">
+    <span class="eyebrow">Whitepaper &amp; Investment Proposal</span>
+    <h1>The AI film studio.<br><span class="g">From an idea to a<br>finished film.</span></h1>
+    <p class="sub">ZigsMotion turns an idea, a script or a product photo into finished animation, ads, VFX, voices and long-form video, in any language, inside one studio.</p>
+    <div class="meta">
+      <div><b>Programme</b>Startup Qatar Investment Program</div>
+      <div><b>Track</b>START · up to US$1.1M</div>
+      <div><b>Date</b>October 2026</div>
+      <div><b>Web</b>zigsmotion.com</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ 2 · EXECUTIVE SUMMARY ═════════ -->
+<section class="page">
+  <div class="run"><img src="img/zigsmotion-logo.svg" alt=""><span>Executive summary</span></div>
+  <span class="eyebrow">01 · Executive summary</span>
+  <h2>One studio for everything<br><span class="g">a video needs.</span></h2>
+  <p class="lead">Every brand, creator and broadcaster now needs more video than ever, in more formats and more languages. Making it still takes a crew, a studio, weeks of work and a stack of separate tools. ZigsMotion replaces that with one AI studio that goes from an idea to a finished film.</p>
+
+  <div class="grid2" style="margin:5mm 0">
+    <div class="card">
+      <h3>The product</h3>
+      <p style="margin:0">Eleven AI modules in one pipeline: <b>Idea → Pixar-style film</b>, <b>Product → Ad</b> (UGC, showcase, luxury), <b>VFX</b>, <b>3D model designer</b>, <b>set designer</b>, <b>motion graphics</b>, a <b>natural voice generator</b>, <b>explainer videos</b>, a <b>music video studio with lip-sync</b>, a <b>viral script generator</b> and an <b>orchestration maker</b> that runs them all from one brief. Consistent characters across every shot; output in any language.</p>
+    </div>
+    <div class="card">
+      <h3>The proof</h3>
+      <p style="margin:0">Our tools already power real channels: <b>Lucky &amp; Nikki World</b> (Pixar-style family series, <b>40M+ views</b>, reels at 10M+ and 8M+), <b>IceHill Music</b> and <b>IceHill Bhakti</b> on YouTube, and <b>Blacklight Motion</b>'s client ads. Full-length AI films, such as an 8½-minute music video, show the long-form edge.</p>
+    </div>
+  </div>
+
+  <div class="grid4" style="margin-bottom:5mm">
+    <div class="card stat"><b>40M+</b><span>views on one ZigsMotion-made series</span></div>
+    <div class="card stat"><b>11</b><span>AI modules in a single studio</span></div>
+    <div class="card stat"><b>5–10 min</b><span>long-form episodes, not 5-second clips</span></div>
+    <div class="card stat"><b>US$1.1M</b><span>START track request, in milestone tranches</span></div>
+  </div>
+
+  <div class="card">
+    <h3>The ask &amp; the plan in Qatar</h3>
+    <p style="margin:0">We are applying to the <b>START track for up to US$1.1M</b>, released against agreed milestones, to incorporate ZigsMotion in Qatar, take the studio from MVP to a commercial platform, and launch <b>Arabic-first</b> creation tools for GCC brands, creators and media. Qatar's investment in media and AI, including Media City Qatar, makes Doha the right base to serve the region's fastest-growing ad market.</p>
+  </div>
+  <div class="foot"><span>ZigsMotion · Whitepaper · zigsmotion.com</span><span>2</span></div>
+</section>
+
+<!-- ═════════ 3 · PROBLEM ═════════ -->
+<section class="page">
+  <div class="run"><img src="img/zigsmotion-logo.svg" alt=""><span>The problem</span></div>
+  <span class="eyebrow">02 · The problem</span>
+  <h2>Demand for video exploded.<br><span class="g">Making it didn't get easier.</span></h2>
+  <p class="lead">Brands post every day, on every platform, in every language their customers speak. Production hasn't kept up.</p>
+
+  <div class="grid2" style="margin:5mm 0">
+    <div class="card"><span class="num">01</span><h3 style="margin-top:2mm">Too slow, too expensive</h3><p style="margin:0">A single animated or VFX ad means scripting, casting, sets, shooting or animation, voice, edit and grade: weeks of work and a crew. Most small brands and creators simply can't afford it.</p></div>
+    <div class="card"><span class="num">02</span><h3 style="margin-top:2mm">Ten tools for one video</h3><p style="margin:0">Today's AI tools each do one step: an image model here, a video model there, a separate voice tool, a separate editor. Characters drift between shots, and stitching it together is still manual work.</p></div>
+    <div class="card"><span class="num">03</span><h3 style="margin-top:2mm">Stuck at five seconds</h3><p style="margin:0">Most AI video stops at short clips. Audiences, YouTube and broadcasters want stories: 5 to 10 minute episodes with the same characters, narration and chapters.</p></div>
+    <div class="card"><span class="num">04</span><h3 style="margin-top:2mm">The language gap</h3><p style="margin:0">Leading tools are English-first. Arabic, Hindi and regional-language audiences, hundreds of millions of viewers, are underserved, though they are where growth is.</p></div>
+  </div>
+
+  <div class="card" style="display:grid;grid-template-columns:1.1fr 1fr;gap:5mm;align-items:center">
+    <div>
+      <h3>Who feels it most</h3>
+      <ul style="margin:0">
+        <li><b>Brands &amp; D2C sellers</b> who need ads every week.</li>
+        <li><b>Creators &amp; channels</b> who need consistent characters and series.</li>
+        <li><b>Agencies &amp; studios</b> under pressure on cost and turnaround.</li>
+        <li><b>Media &amp; education</b> needing long-form explainers in local languages.</li>
+      </ul>
+    </div>
+    <img class="shot" src="img/sheet-girl.jpg" alt="">
+  </div>
+  <div class="foot"><span>ZigsMotion · Whitepaper · zigsmotion.com</span><span>3</span></div>
+</section>
+
+<!-- ═════════ 4 · SOLUTION ═════════ -->
+<section class="page">
+  <div class="run"><img src="img/zigsmotion-logo.svg" alt=""><span>The solution</span></div>
+  <span class="eyebrow">03 · The solution</span>
+  <h2>ZigsMotion Studio:<br><span class="g">eleven tools, one pipeline.</span></h2>
+  <p class="lead">One workspace takes a project from the first idea to a finished, delivered film. Every module shares the same characters, sets and voices, so the output stays consistent from shot to shot and episode to episode.</p>
+  <img class="shot" src="img/d-00-overview.jpg" alt="ZigsMotion Studio overview" style="margin:4mm 0 5mm">
+  <div style="display:flex;flex-wrap:wrap;gap:2mm;margin-bottom:4mm">
+    <span class="tag">Idea</span><span class="tag">→ Characters</span><span class="tag">→ Sets</span><span class="tag">→ Shots</span><span class="tag">→ Voice</span><span class="tag">→ Finished film</span>
+  </div>
+  <div class="grid3">
+    <div class="card"><h3>Consistent characters</h3><p style="margin:0">Design a cast once; it stays on-model in every shot, reel and episode.</p></div>
+    <div class="card"><h3>Any language</h3><p style="margin:0">Scripts, voices and captions in Arabic, Hindi, English and regional languages.</p></div>
+    <div class="card"><h3>Every format</h3><p style="margin:0">Reels 9:16, YouTube 16:9, square feed, plus long-form episodes with chapters.</p></div>
+  </div>
+  <div class="foot"><span>ZigsMotion · Whitepaper · zigsmotion.com</span><span>4</span></div>
+</section>
+
+<!-- ═════════ 5 · MODULES 1–4 ═════════ -->
+<section class="page">
+  <div class="run"><img src="img/zigsmotion-logo.svg" alt=""><span>Product · modules 1–4</span></div>
+  <span class="eyebrow">04 · Product</span>
+  <h2>What the studio <span class="g">makes.</span></h2>
+  <div class="grid2" style="gap:5mm">
+    <div class="card">
+      <img class="shot" src="img/d-01-pixar.jpg" alt="" style="margin-bottom:3mm">
+      <span class="num">01</span> <h3 style="display:inline">Idea → Pixar-style film</h3>
+      <p style="margin:1.5mm 0 0">Type an idea; get a cast of characters, a storyboard and a finished Pixar-style 3D film with voices and music. Powers Lucky &amp; Nikki World (40M+ views).</p>
+    </div>
+    <div class="card">
+      <img class="shot" src="img/d-02-ads.jpg" alt="" style="margin-bottom:3mm">
+      <span class="num">02</span> <h3 style="display:inline">Product → Ad</h3>
+      <p style="margin:1.5mm 0 0">Upload one product photo; choose UGC creator, product showcase, luxury film or lifestyle. Get a ready-to-post ad with AI model, set, light and captions. No shoot.</p>
+    </div>
+    <div class="card">
+      <img class="shot" src="img/d-03-vfx.jpg" alt="" style="margin-bottom:3mm">
+      <span class="num">03</span> <h3 style="display:inline">VFX shots</h3>
+      <p style="margin:1.5mm 0 0">Describe the shot; get blockbuster effects (armoured suits, creatures, giant robots, destruction) with matched light and grain, without a VFX house.</p>
+    </div>
+    <div class="card">
+      <img class="shot" src="img/d-04-model3d.jpg" alt="" style="margin-bottom:3mm">
+      <span class="num">04</span> <h3 style="display:inline">3D model designer</h3>
+      <p style="margin:1.5mm 0 0">Design a character or product once; get a textured 3D mesh you can orbit, light and animate in the browser, plus a production turnaround (front, ¾, side, back).</p>
+    </div>
+  </div>
+  <div class="foot"><span>ZigsMotion · Whitepaper · zigsmotion.com</span><span>5</span></div>
+</section>
+
+<!-- ═════════ 6 · MODULES 5–8 ═════════ -->
+<section class="page">
+  <div class="run"><img src="img/zigsmotion-logo.svg" alt=""><span>Product · modules 5–8</span></div>
+  <span class="eyebrow">04 · Product</span>
+  <h2>From sets to <span class="g">long-form.</span></h2>
+  <div class="grid2" style="gap:5mm">
+    <div class="card">
+      <img class="shot" src="img/d-05-sets.jpg" alt="" style="margin-bottom:3mm">
+      <span class="num">05</span> <h3 style="display:inline">Set designer</h3>
+      <p style="margin:1.5mm 0 0">Describe a location; get film-ready sets with consistent light and mood, reusable across every shot: snowbound camps, temples, luxury interiors.</p>
+    </div>
+    <div class="card">
+      <img class="shot" src="img/d-06-motion.jpg" alt="" style="margin-bottom:3mm">
+      <span class="num">06</span> <h3 style="display:inline">Motion graphics</h3>
+      <p style="margin:1.5mm 0 0">Type a brand name and tagline; get an animated logo sting and name ad with kinetic type in the brand’s colours (neon, kinetic, corporate or glitch) for reels and YouTube intros.</p>
+    </div>
+    <div class="card">
+      <img class="shot" src="img/d-07-voice.jpg" alt="" style="margin-bottom:3mm">
+      <span class="num">07</span> <h3 style="display:inline">Natural voice generator</h3>
+      <p style="margin:1.5mm 0 0">Paste a script; choose a voice and an emotion. Get natural, expressive narration, character dialogue or singing, in any language.</p>
+    </div>
+    <div class="card">
+      <img class="shot" src="img/d-08-explainer.jpg" alt="" style="margin-bottom:3mm">
+      <span class="num">08</span> <h3 style="display:inline">Explainer videos</h3>
+      <p style="margin:1.5mm 0 0">Give a topic or script; get a 2D vector explainer or story with characters, narration and kinetic captions, from a 30-second reel to a 10-minute episode with chapters.</p>
+    </div>
+  </div>
+  <div class="foot"><span>ZigsMotion · Whitepaper · zigsmotion.com</span><span>6</span></div>
+</section>
+
+<!-- ═════════ 6b · MODULES 9–11 ═════════ -->
+<section class="page">
+  <div class="run"><img src="img/zigsmotion-logo.svg" alt=""><span>Product · modules 9–11</span></div>
+  <span class="eyebrow">04 · Product</span>
+  <h2>Music, scripts and <span class="g">one-brief production.</span></h2>
+  <div class="grid2" style="gap:5mm">
+    <div class="card">
+      <img class="shot" src="img/d-09-music.jpg" alt="" style="margin-bottom:3mm">
+      <span class="num">09</span> <h3 style="display:inline">Music video studio</h3>
+      <p style="margin:1.5mm 0 0">Upload a song; the studio maps beat, structure and lyrics, plans scenes verse by verse, casts singers who lip-sync every line, and cuts the full music video to the track.</p>
+    </div>
+    <div class="card">
+      <img class="shot" src="img/d-10-viral.jpg" alt="" style="margin-bottom:3mm">
+      <span class="num">10</span> <h3 style="display:inline">Viral script generator</h3>
+      <p style="margin:1.5mm 0 0">Give a topic; get hooks ranked by predicted retention, a beat-by-beat script, captions, hashtags and the best time to post, written in the style behind our 10M-view reels.</p>
+    </div>
+    <div class="card">
+      <img class="shot" src="img/d-11-orch.jpg" alt="" style="margin-bottom:3mm">
+      <span class="num">11</span> <h3 style="display:inline">Orchestration maker</h3>
+      <p style="margin:1.5mm 0 0">Write one brief; agents plan the job, run every module in order and in parallel, and deliver the finished cut, with human review only where the client wants it.</p>
+    </div>
+    <div class="card">
+      <img class="shot" src="img/d-3d.jpg" alt="" style="margin-bottom:3mm">
+      <span class="num">3D</span> <h3 style="display:inline">Built in real 3D</h3>
+      <p style="margin:1.5mm 0 0">Characters and products from the 3D model designer render live on a lit stage in the browser: textured meshes, compressed to load in seconds on a phone.</p>
+    </div>
+  </div>
+  <div class="foot"><span>ZigsMotion · Whitepaper · zigsmotion.com</span><span>7</span></div>
+</section>
+
+<!-- ═════════ 7 · TECHNOLOGY ═════════ -->
+<section class="page">
+  <div class="run"><img src="img/zigsmotion-logo.svg" alt=""><span>Technology</span></div>
+  <span class="eyebrow">05 · Technology</span>
+  <h2>An orchestration layer<br><span class="g">over the best models.</span></h2>
+  <p class="lead">Foundation models get better every quarter. Our value is the layer above them: turning an idea into a plan, keeping characters and sets consistent, routing every step to the right model, and assembling a finished film.</p>
+
+  <table style="margin:4mm 0 5mm">
+    <tr><th style="width:28%">Layer</th><th>What it does</th></tr>
+    <tr><td><b>Story &amp; planning</b></td><td>Breaks an idea or script into scenes, shots, characters, sets and dialogue; produces the shot list the rest of the pipeline follows.</td></tr>
+    <tr><td><b>Character Lock</b></td><td>Turns character sheets and reference images into a locked cast, so faces, outfits and proportions stay consistent across shots and episodes.</td></tr>
+    <tr><td><b>Model router</b></td><td>Sends each task to the best engine for it (today ByteDance Seedance 2.5 / 2.0 for video, Seedream 5 for images and ElevenLabs-grade voices) and swaps engines as better ones ship.</td></tr>
+    <tr><td><b>Stories engine</b></td><td>Our in-house 2D vector (SVG) animation and motion-graphics renderer for long-form episodes and reels: scenes, captions, chapter cards, mixing.</td></tr>
+    <tr><td><b>Cost engine</b></td><td>Prices every render from the provider's real cost with a guaranteed gross margin, and shows the price before anything is generated.</td></tr>
+    <tr><td><b>Media pipeline</b></td><td>Stores every output permanently, streams long films (HLS), and delivers platform-ready masters, thumbnails and captions.</td></tr>
+  </table>
+
+  <div class="grid3">
+    <div class="card"><h3>Model-agnostic</h3><p style="margin:0">No lock-in to one AI vendor; quality rises as the models do, while our workflow, data and characters stay ours.</p></div>
+    <div class="card"><h3>Safe by design</h3><p style="margin:0">Spend locks on paid renders, permanent storage of outputs, and consent rules for real people's likenesses.</p></div>
+    <div class="card"><h3>Built, not slideware</h3><p style="margin:0">Studio, credits, billing, storage, the Stories engine and the live website are already built and running.</p></div>
+  </div>
+  <div class="foot"><span>ZigsMotion · Whitepaper · zigsmotion.com</span><span>8</span></div>
+</section>
+
+<!-- ═════════ 8 · TRACTION ═════════ -->
+<section class="page">
+  <div class="run"><img src="img/zigsmotion-logo.svg" alt=""><span>Traction</span></div>
+  <span class="eyebrow">06 · Traction &amp; proof</span>
+  <h2>Already in front of<br><span class="g">tens of millions.</span></h2>
+  <div class="card" style="display:grid;grid-template-columns:22mm 1fr;gap:4mm;align-items:center;margin-bottom:4mm">
+    <img src="img/lucky-nikki.jpg" alt="" style="width:22mm;height:22mm;border-radius:50%">
+    <div><h3 style="margin:0">Lucky &amp; Nikki World · Instagram</h3><p style="margin:1mm 0 0">A Pixar-style 3D family series made with ZigsMotion. <b>40M+ total views</b>, individual episodes at <b>10M+</b>, <b>8M+</b>, <b>5.6M</b> and <b>3M</b> views; a new episode every week.</p></div>
+  </div>
+  <div class="grid4" style="margin-bottom:5mm">
+    <img class="shot" src="img/Dd2M8lazkln.jpg" alt=""><img class="shot" src="img/Dc0tdlAzScO.jpg" alt=""><img class="shot" src="img/DeixF6fzLnd.jpg" alt=""><img class="shot" src="img/DerHBADzlbN.jpg" alt="">
+  </div>
+  <div class="grid3" style="margin-bottom:4mm">
+    <div class="card" style="text-align:center"><img src="img/icehill-music.jpg" alt="" style="width:14mm;height:14mm;border-radius:50%"><h3 style="margin-top:2mm">IceHill Music</h3><p style="margin:0">17 original songs &amp; music videos on YouTube.</p></div>
+    <div class="card" style="text-align:center"><img src="img/icehill-bhakti.jpg" alt="" style="width:14mm;height:14mm;border-radius:50%"><h3 style="margin-top:2mm">IceHill Bhakti</h3><p style="margin:0">18 devotional films &amp; bhajans, incl. live-action Narasimha.</p></div>
+    <div class="card" style="text-align:center"><img src="img/blacklight.jpg" alt="" style="width:14mm;height:14mm;border-radius:50%"><h3 style="margin-top:2mm">Blacklight Motion</h3><p style="margin:0">AI ads &amp; films for brands, incl. client EaseMyPrint.</p></div>
+  </div>
+  <div class="grid2">
+    <div class="card"><h3>Long-form, end to end</h3><p style="margin:0"><b>Oh Mere Ranjhana</b>: an 8½-minute music video made entirely with AI. <b>Khana Kha Liya?</b>: a 2D vector story reel, from script to captions, in one pass.</p></div>
+    <div class="card"><h3>Live today</h3><p style="margin:0"><b>zigsmotion.com</b> is live with the portfolio and early-access sign-ups; the eleven-module studio MVP is the homepage, and the brand portfolio is at <b>zigsmotion.com/earlyaccess</b>.</p></div>
+  </div>
+  <div class="foot"><span>ZigsMotion · Whitepaper · zigsmotion.com</span><span>9</span></div>
+</section>
+
+<!-- ═════════ 9 · MARKET ═════════ -->
+<section class="page">
+  <div class="run"><img src="img/zigsmotion-logo.svg" alt=""><span>Market</span></div>
+  <span class="eyebrow">07 · Market</span>
+  <h2>Two fast-growing markets<br><span class="g">meet in one product.</span></h2>
+  <p class="lead">ZigsMotion sits where generative AI video meets the world's fastest-growing digital advertising region, and where hundreds of millions of viewers are still underserved in their own language.</p>
+  <div class="grid3" style="margin:5mm 0">
+    <div class="card stat"><b>US$8.2B</b><span>MENA digital ad spend in 2025, up 17.8% year on year: the fastest-growing digital ad region in the world.<sup>[1][2]</sup></span></div>
+    <div class="card stat"><b>+23.6%</b><span>growth in MENA social video advertising in 2025; connected TV grew 31%. The market is buying video.<sup>[2]</sup></span></div>
+    <div class="card stat"><b>46.1%</b><span>of MENA digital ad spend is in Saudi Arabia (+18.9% in 2025); the UAE grew 17.7%.<sup>[3]</sup></span></div>
+    <div class="card stat"><b>US$8.1B</b><span>generative AI in media and entertainment by 2030, up from US$2.5B in 2025 (26.4% a year).<sup>[7]</sup></span></div>
+    <div class="card stat"><b>20–33%</b><span>annual growth forecast for AI video generators to 2030 and beyond, across independent analysts.<sup>[4][5][6]</sup></span></div>
+    <div class="card stat"><b>420M+</b><span>Arabic speakers, yet Arabic is only around 5% of internet content: a clear gap for Arabic-first video.<sup>[9]</sup></span></div>
+  </div>
+  <div class="card">
+    <h3>Who we sell to</h3>
+    <table>
+      <tr><th>Segment</th><th>Need</th><th>ZigsMotion offer</th></tr>
+      <tr><td><b>Creators &amp; channels</b></td><td>Weekly episodes with consistent characters</td><td>Self-serve studio, pay per render</td></tr>
+      <tr><td><b>Brands &amp; D2C</b></td><td>Ads every week, every platform</td><td>Product → Ad, UGC &amp; showcase templates</td></tr>
+      <tr><td><b>Agencies &amp; studios</b></td><td>Faster, cheaper production</td><td>Team plans, VFX, sets, 3D models, orchestration</td></tr>
+      <tr><td><b>Media, music &amp; education</b></td><td>Long-form and music video in local languages</td><td>Explainers, music video studio, Arabic voices, enterprise</td></tr>
+    </table>
+  </div>
+  <p class="src" style="margin-top:4mm">Figures are third-party estimates; full references on the last page. Analyst forecasts for AI video vary widely because each defines the market differently, so we quote the range.</p>
+  <div class="foot"><span>ZigsMotion · Whitepaper · zigsmotion.com</span><span>10</span></div>
+</section>
+
+<!-- ═════════ 9b · SIZING & PLAN ═════════ -->
+<section class="page">
+  <div class="run"><img src="img/zigsmotion-logo.svg" alt=""><span>Market sizing &amp; plan</span></div>
+  <span class="eyebrow">08 · Market sizing</span>
+  <h2>A large market,<br><span class="g">a focused entry.</span></h2>
+  <div class="grid3" style="margin:4mm 0">
+    <div class="card stat"><b>TAM · US$8.1B</b><span>Global generative AI in media and entertainment by 2030.<sup>[7]</sup></span></div>
+    <div class="card stat"><b>SAM · ~US$0.8B</b><span>Creative production behind MENA's US$8.2B digital ad spend, assuming about 10% of media budgets go on making the ads.<sup>[1]</sup> <i>ZigsMotion assumption.</i></span></div>
+    <div class="card stat"><b>SOM · ~US$8M</b><span>About 1% of SAM by year 3, from GCC and Indian creators, brands and agencies. Matches the plan below.</span></div>
+  </div>
+  <div class="grid2" style="margin-bottom:4mm">
+    <div class="card"><h3>What one minute costs today</h3><p style="margin:0">Studios typically charge <b>US$3,000–8,000 per minute</b> for 2D motion graphics and <b>US$10,000–30,000+ per minute</b> for high-fidelity 3D animation.<sup>[8]</sup></p></div>
+    <div class="card"><h3>What it costs in ZigsMotion</h3><p style="margin:0">A Pixar-style reel renders at about <b>US$3.17 per 15 seconds</b> to the customer, so roughly <b>US$13 a minute</b> in credits, at a 40% gross margin to us. Minutes, not weeks.</p></div>
+  </div>
+  <table>
+    <tr><th>Plan targets</th><th>Year 1 (2027)</th><th>Year 2 (2028)</th><th>Year 3 (2029)</th></tr>
+    <tr><td><b>Paying self-serve customers</b> (average)</td><td>600</td><td>3,000</td><td>9,000</td></tr>
+    <tr><td><b>Revenue per customer / month</b></td><td>US$45</td><td>US$55</td><td>US$60</td></tr>
+    <tr><td><b>Agency &amp; enterprise contracts</b></td><td>2 × US$40K</td><td>5 × US$60K</td><td>15 × US$80K</td></tr>
+    <tr><td><b>Studio services</b> (done for you)</td><td>US$0.1M</td><td>US$0.4M</td><td>US$0.6M</td></tr>
+    <tr><td><b>Total revenue</b></td><td><b>US$0.5M</b></td><td><b>US$2.7M</b></td><td><b>US$8.3M</b></td></tr>
+    <tr><td><b>Blended gross margin</b></td><td>45%</td><td>50%</td><td>55%</td></tr>
+  </table>
+  <p class="src" style="margin-top:3mm">Plan targets built bottom-up from the assumptions shown; they are goals for the milestone plan, not guaranteed results. Margin rises as enterprise and services grow and provider prices fall; every render keeps the 40% floor.</p>
+  <div class="card" style="margin-top:3mm">
+    <h3>Go to market</h3>
+    <ul style="margin:0">
+      <li><b>Creators first:</b> the playbook behind Lucky &amp; Nikki World (40M+ views), offered as templates and a weekly-series workflow.</li>
+      <li><b>Brands through agencies:</b> pilots with Doha, Riyadh and Dubai agencies using Product → Ad and the orchestration maker.</li>
+      <li><b>Seasonal Arabic campaigns:</b> Ramadan, Eid, National Day and retail seasons, ready-made in Arabic.</li>
+    </ul>
+  </div>
+  <div class="foot"><span>ZigsMotion · Whitepaper · zigsmotion.com</span><span>11</span></div>
+</section>
+
+<!-- ═════════ 10 · WHY QATAR ═════════ -->
+<section class="page">
+  <div class="run"><img src="img/zigsmotion-logo.svg" alt=""><span>Why Qatar</span></div>
+  <span class="eyebrow">09 · Why Qatar</span>
+  <h2>Doha as our base<br><span class="g">for the GCC.</span></h2>
+  <p class="lead">Qatar is investing deliberately in media, AI and startups. ZigsMotion fits that agenda and needs exactly what Qatar offers: a credible regional base, a media ecosystem, capital and access to the GCC.</p>
+  <div class="grid2" style="margin:5mm 0">
+    <div class="card"><h3>Media City Qatar</h3><p style="margin:0">100% foreign ownership, zero income tax and no customs duties; qualifying companies get a 20-year tax holiday.<sup>[14][15]</sup> More than 500 companies were licensed by May 2026.<sup>[14]</sup></p></div>
+    <div class="card"><h3>Startup Qatar &amp; QDB</h3><p style="margin:0">The Startup Qatar Investment Program, run by Qatar Development Bank since February 2024, funds startups launching in Qatar with up to US$1.1M (START) in milestone tranches.<sup>[10][11]</sup></p></div>
+    <div class="card"><h3>Capital &amp; AI agenda</h3><p style="margin:0">QIA's US$1B venture fund of funds (2024) was later expanded by US$2B, with AI among its focus sectors.<sup>[12][13]</sup> The National Digital Agenda 2030 makes AI and the digital economy national priorities.<sup>[16]</sup></p></div>
+    <div class="card"><h3>Gateway to the GCC</h3><p style="margin:0">From Doha we serve Saudi Arabia, 46.1% of MENA digital ad spend and growing 18.9% a year, and the UAE, growing 17.7%.<sup>[3]</sup> Arabic is the language across all of it.</p></div>
+  </div>
+  <div class="card">
+    <h3>Our Qatar plan</h3>
+    <ul style="margin:0">
+      <li>Incorporate ZigsMotion in Qatar (Media City Qatar) and base the founding team and product development in Doha.</li>
+      <li>Launch Arabic voices, Arabic captions and GCC-ready ad templates (Ramadan, Eid, National Day, retail seasons).</li>
+      <li>Partner with Qatari media, agencies, musicians and education providers for pilots and long-form Arabic content.</li>
+      <li>Hire locally for product, AI engineering and partnerships as the platform scales.</li>
+    </ul>
+  </div>
+  <div class="foot"><span>ZigsMotion · Whitepaper · zigsmotion.com</span><span>12</span></div>
+</section>
+
+<!-- ═════════ 11 · BUSINESS MODEL ═════════ -->
+<section class="page">
+  <div class="run"><img src="img/zigsmotion-logo.svg" alt=""><span>Business model</span></div>
+  <span class="eyebrow">10 · Business model</span>
+  <h2>Pay per render,<br><span class="g">with margin built in.</span></h2>
+  <p class="lead">Customers buy credits and spend them on any module. Every render is priced from the AI provider's real cost plus a fixed margin, so revenue scales with usage and every render is profitable.</p>
+  <table style="margin:4mm 0 5mm">
+    <tr><th>Revenue stream</th><th>Who</th><th>How it's priced</th></tr>
+    <tr><td><b>Credit packs</b></td><td>Creators, small brands</td><td>One-off packs from US$29 (600 credits) to US$199 (5,400 credits); no subscription, credits don't expire</td></tr>
+    <tr><td><b>Team &amp; agency plans</b></td><td>Agencies, studios</td><td>Monthly seats plus pooled credits <span class="tbc">to confirm</span></td></tr>
+    <tr><td><b>Enterprise &amp; API</b></td><td>Media, education, platforms</td><td>Annual contracts, volume pricing, Arabic/long-form pipelines <span class="tbc">to confirm</span></td></tr>
+    <tr><td><b>Studio services</b></td><td>Brands wanting done-for-you</td><td>Per-project production via our studio team (as Blacklight Motion does today)</td></tr>
+  </table>
+  <div class="grid3">
+    <div class="card stat"><b>40%</b><span>minimum gross margin on every generated render, enforced by the cost engine</span></div>
+    <div class="card stat"><b>$0.037</b><span>per credit on the largest pack: the floor the margin is calculated on</span></div>
+    <div class="card stat"><b>0</b><span>renders sold below cost: prices update when provider rates change</span></div>
+  </div>
+  <div class="card" style="margin-top:5mm">
+    <h3>Example: a 15-second Pixar-style reel</h3>
+    <p style="margin:0">Provider cost on Seedance 2.0 at 720p ≈ US$2.25 → customer price 86 credits ≈ US$3.17. The same reel from a traditional animation studio typically costs hundreds to thousands of dollars and takes days.</p>
+  </div>
+  <div class="foot"><span>ZigsMotion · Whitepaper · zigsmotion.com</span><span>13</span></div>
+</section>
+
+<!-- ═════════ 12 · COMPETITION ═════════ -->
+<section class="page">
+  <div class="run"><img src="img/zigsmotion-logo.svg" alt=""><span>Competition</span></div>
+  <span class="eyebrow">11 · Competitive landscape</span>
+  <h2>Point tools vs<br><span class="g">a full studio.</span></h2>
+  <p class="lead">The market is full of excellent single-purpose tools. ZigsMotion's advantage is the finished film: one pipeline, consistent characters and long-form output in local languages.</p>
+  <table style="margin:4mm 0 5mm">
+    <tr><th style="width:26%">Category</th><th>Examples</th><th>What they do well</th><th>Where ZigsMotion differs</th></tr>
+    <tr><td><b>AI video models</b></td><td>Sora, Veo, Runway, Kling, Pika</td><td>Short, high-quality clips</td><td>We orchestrate these models into a finished story; not a single clip</td></tr>
+    <tr><td><b>Avatar &amp; explainer</b></td><td>Synthesia, HeyGen</td><td>Talking-head presenters</td><td>Characters, worlds and narrative, not a presenter at a desk</td></tr>
+    <tr><td><b>Voice</b></td><td>ElevenLabs</td><td>Natural speech</td><td>Voice is one step inside a full production pipeline</td></tr>
+    <tr><td><b>Creative suites</b></td><td>Adobe, Canva</td><td>Editing &amp; design</td><td>Generates the footage itself, from an idea</td></tr>
+    <tr><td><b>Agencies &amp; studios</b></td><td>Traditional production</td><td>Craft &amp; control</td><td>Hours not weeks; a fraction of the cost</td></tr>
+  </table>
+  <div class="grid2">
+    <div class="card"><h3>Our moats</h3><ul style="margin:0"><li>End-to-end pipeline and in-house Stories engine</li><li>Character Lock across shots and episodes</li><li>Proven audience results (40M+ views)</li><li>Regional language focus: Arabic, Hindi, regional</li></ul></div>
+    <div class="card"><h3>Why now</h3><ul style="margin:0"><li>Video models crossed the quality bar in 2025–26</li><li>Costs per second are falling fast</li><li>MENA is the fastest-growing digital ad region</li><li>No dominant end-to-end, Arabic-first studio yet</li></ul></div>
+  </div>
+  <div class="foot"><span>ZigsMotion · Whitepaper · zigsmotion.com</span><span>14</span></div>
+</section>
+
+<!-- ═════════ 13 · ROADMAP & USE OF FUNDS ═════════ -->
+<section class="page">
+  <div class="run"><img src="img/zigsmotion-logo.svg" alt=""><span>Roadmap · use of funds</span></div>
+  <span class="eyebrow">12 · Milestones &amp; use of funds</span>
+  <h2>US$1.1M in tranches,<br><span class="g">tied to milestones.</span></h2>
+  <table style="margin:3mm 0 5mm">
+    <tr><th style="width:20%">Tranche</th><th style="width:16%">Timing</th><th>Milestones</th><th style="width:22%">Target KPIs</th></tr>
+    <tr><td><b>T1 · Set up</b></td><td>Months 0–3</td><td>Incorporate in Qatar; core team in Doha; all 11 modules generating live in the studio; Arabic voice &amp; captions in beta</td><td>Private beta with 50 creators &amp; brands <span class="tbc">target</span></td></tr>
+    <tr><td><b>T2 · Launch</b></td><td>Months 3–6</td><td>Public launch; credit packs with regional payment providers; GCC ad templates; first Qatari partnerships</td><td>1,000 users · first paying agencies <span class="tbc">target</span></td></tr>
+    <tr><td><b>T3 · Scale</b></td><td>Months 6–12</td><td>Team &amp; agency plans; enterprise/API; long-form Arabic explainers; 3D mesh export</td><td>Recurring revenue &amp; 3 enterprise pilots <span class="tbc">target</span></td></tr>
+  </table>
+  <div class="grid2" style="align-items:start">
+    <div class="card">
+      <h3>Proposed use of funds</h3>
+      <table>
+        <tr><td><b>Product &amp; AI engineering</b></td><td style="text-align:right">40% · $440K</td></tr>
+        <tr><td><b>Compute &amp; model credits</b></td><td style="text-align:right">20% · $220K</td></tr>
+        <tr><td><b>Go-to-market (GCC)</b></td><td style="text-align:right">20% · $220K</td></tr>
+        <tr><td><b>Qatar operations &amp; team</b></td><td style="text-align:right">10% · $110K</td></tr>
+        <tr><td><b>Legal, IP &amp; compliance</b></td><td style="text-align:right">5% · $55K</td></tr>
+        <tr><td><b>Contingency</b></td><td style="text-align:right">5% · $55K</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>Allocation</h3>
+      <div style="display:grid;gap:2.2mm;margin-top:2mm">
+        <div style="height:5mm;width:100%;border-radius:1.5mm;background:var(--grad)"></div>
+        <div style="height:5mm;width:50%;border-radius:1.5mm;background:#38A8F8"></div>
+        <div style="height:5mm;width:50%;border-radius:1.5mm;background:#2F7BF0"></div>
+        <div style="height:5mm;width:25%;border-radius:1.5mm;background:#1F5FD8"></div>
+        <div style="height:5mm;width:12.5%;border-radius:1.5mm;background:#1A4FD6"></div>
+        <div style="height:5mm;width:12.5%;border-radius:1.5mm;background:#163FA8"></div>
+      </div>
+      <p class="src" style="margin-top:3mm">Proposed split; final allocation and KPIs to be agreed with Startup Qatar as tranche milestones.</p>
+    </div>
+  </div>
+  <div class="foot"><span>ZigsMotion · Whitepaper · zigsmotion.com</span><span>15</span></div>
+</section>
+
+<!-- ═════════ 14 · TEAM · RISKS · CONTACT ═════════ -->
+<section class="page">
+  <div class="run"><img src="img/zigsmotion-logo.svg" alt=""><span>Team · risks · contact</span></div>
+  <span class="eyebrow">13 · Team</span>
+  <h2>Builders who <span class="g">already ship.</span></h2>
+  <div class="grid2" style="margin-bottom:5mm">
+    <div class="card"><h3>Jagjeet Jena · Founder</h3><p style="margin:0">Builds the ZigsMotion platform and its AI pipeline; creator behind Lucky &amp; Nikki World, IceHill Music &amp; IceHill Bhakti, and Blacklight Motion; lyricist on <i>Oh Mere Ranjhana</i>. <span class="tbc">full bio to confirm</span></p></div>
+    <div class="card"><h3>Hiring in Doha</h3><p style="margin:0">AI/ML engineer · full-stack engineer · Arabic content &amp; voice lead · GCC partnerships &amp; sales. <span class="tbc">co-founders &amp; advisors to confirm</span></p></div>
+  </div>
+  <span class="eyebrow">14 · Risks &amp; mitigations</span>
+  <table style="margin-bottom:5mm">
+    <tr><th style="width:30%">Risk</th><th>Mitigation</th></tr>
+    <tr><td><b>Dependence on AI vendors</b></td><td>Model-agnostic router; multiple providers per task; in-house Stories engine for long-form</td></tr>
+    <tr><td><b>Model prices change</b></td><td>Cost engine re-prices automatically; 40% margin floor on every render</td></tr>
+    <tr><td><b>Content &amp; likeness misuse</b></td><td>Consent rules for real people, content policy, moderation, audit trail of every render</td></tr>
+    <tr><td><b>Fast-moving competition</b></td><td>Focus on the finished film, characters and long-form; regional languages; proven audience results</td></tr>
+  </table>
+  <div class="card" style="display:grid;grid-template-columns:1fr auto;gap:6mm;align-items:center">
+    <div>
+      <span class="eyebrow" style="margin-bottom:2mm">Contact</span>
+      <h3 style="font-size:16pt">Let's make Qatar the home of AI filmmaking.</h3>
+      <p style="margin:2mm 0 0"><b>Jagjeet Jena</b> · jagjeetjena@gmail.com<br>Website · <b>zigsmotion.com</b> &nbsp;·&nbsp; Studio MVP · <b>zigsmotion.com</b></p>
+    </div>
+    <img src="img/zigsmotion-mark.svg" alt="" style="width:30mm">
+  </div>
+  <div class="foot"><span>ZigsMotion · Whitepaper · zigsmotion.com</span><span>16</span></div>
+</section>
+
+
+<!-- ═════════ REFERENCES ═════════ -->
+<section class="page">
+  <div class="run"><img src="img/zigsmotion-logo.svg" alt=""><span>References</span></div>
+  <span class="eyebrow">15 · References</span>
+  <h2>Sources.</h2>
+  <p class="lead">Every market figure in this paper comes from the sources below, accessed October 2026. Third-party forecasts are estimates and differ between analysts.</p>
+  <ol class="refs">
+    <li>IAB MENA, <i>2025 MENA Digital Adspend</i>, June 2026. <a href="https://iabmena.com/2026-2025-mena-digital-adspend/">iabmena.com/2026-2025-mena-digital-adspend</a></li>
+    <li>Communicate Online, <i>MENA digital advertising spend reaches $8.18 Bn in 2025</i>, June 2026. <a href="https://communicateonline.me/news/mena-digital-advertising-spend-reaches-8-18-bn-in-2025-report/">communicateonline.me</a></li>
+    <li>Algrowise, <i>MENA Digital Ad Spend 2025: IAB Report Analysis</i>. <a href="https://algrowise.com/knowledge-hub/iab-mena-annual-ad-spend">algrowise.com/knowledge-hub/iab-mena-annual-ad-spend</a></li>
+    <li>Grand View Research, <i>AI Video Generator Market Size, Share &amp; Trends Report</i>. <a href="https://www.grandviewresearch.com/industry-analysis/ai-video-generator-market-report">grandviewresearch.com</a></li>
+    <li>MarkNtel Advisors, <i>AI Video Generator Market, 2025–2030</i>. <a href="https://www.marknteladvisors.com/research-library/ai-video-generator-market.html">marknteladvisors.com</a></li>
+    <li>Research and Markets, <i>AI Video Generator Market: Forecasts from 2025 to 2030</i>. <a href="https://www.researchandmarkets.com/reports/6061727/ai-video-generator-market-forecasts">researchandmarkets.com</a></li>
+    <li>Research and Markets via GlobeNewswire, <i>Generative AI in Media and Entertainment Market Set to Surpass $8 Billion by 2030</i>, July 2026. <a href="https://www.globenewswire.com/news-release/2026/07/07/3322907/28124/en/explosive-growth-anticipated-generative-ai-in-media-and-entertainment-market-set-to-surpass-8-billion-by-2030.html">globenewswire.com</a></li>
+    <li>Pixune, <i>How Much Does an Animated Explainer Video Cost in 2026?</i> <a href="https://pixune.com/blog/animated-explainer-video-cost/">pixune.com</a></li>
+    <li>GoDaddy, <i>Arabic content: why do you need to start using it?</i> <a href="https://www.godaddy.com/resources/ae/skills/why-do-you-need-to-start-creating-arabic-content">godaddy.com</a></li>
+    <li>Startup Qatar, <i>Investment Program</i> (Qatar Development Bank). <a href="https://startupqatar.qa/en/investment-program">startupqatar.qa/en/investment-program</a>; Entrepreneur Middle East, <i>Four Programs Founders in Qatar Should Know</i>. <a href="https://mena.entrepreneur.com/business-news/four-programs-founders-in-qatar-should-know">mena.entrepreneur.com</a></li>
+    <li>Falak, <i>Startup Qatar Investment Program: START vs GROW and how milestone funding works</i>. <a href="https://www.falak.qa/blogs/knowledge-hub/startup-qatar-investment-program-start-vs-grow-and-how-milestone-funding-works">falak.qa</a></li>
+    <li>Qatar Investment Authority, <i>Expansion of QIA's Fund of Funds program</i>. <a href="https://www.qia.qa/en/Newsroom/Pages/Qatar-Prime-Minister-and-Minister-of-Foreign-affairs-announces-expansion-of-QIAs-Fund-of-Funds-program-welcoming-new-global-VCs-to-Qatar.aspx">qia.qa</a></li>
+    <li>TechCrunch, <i>Qatar plots a $1B pipeline to VCs</i>, February 2024. <a href="https://techcrunch.com/2024/02/26/qia-to-invest-1-billion-in-international-and-regional-venture-capital-funds/">techcrunch.com</a></li>
+    <li>Qatar Tribune, <i>Media City Qatar surpasses 500 licensed companies</i>, May 2026. <a href="https://www.qatar-tribune.com/article/232187/latest-news/media-city-qatar-surpasses-500-licensed-companies-marking-new-phase-of-growth">qatar-tribune.com</a></li>
+    <li>Charles Russell Speechlys, <i>Media City Qatar: Regulatory Framework, Market Enablers and Development Pathways</i>, 2026. <a href="https://www.charlesrussellspeechlys.com/en/insights/expert-insights/corporate/2026/media-city-qatar-regulatory-framework-market-enablers-and-development-pathways/">charlesrussellspeechlys.com</a></li>
+    <li>U.S. International Trade Administration, <i>Qatar National Digital Agenda 2030</i>. <a href="https://www.trade.gov/market-intelligence/qatar-national-digital-agenda-2030">trade.gov</a></li>
+  </ol>
+  <p class="src">ZigsMotion figures (views, catalogue, pricing, margins) come from our own channels and platform. Plan targets are goals, not forecasts of guaranteed results.</p>
+  <div class="foot"><span>ZigsMotion · Whitepaper · zigsmotion.com</span><span>17</span></div>
+</section>
+
+</div>
+<script>
+  // fit the A4 pages to narrow screens
+  const fit = () => { document.querySelector(".wpwrap").style.zoom = Math.min(1, (Math.min(innerWidth, screen.width || innerWidth) - 16) / 794); };
+  fit(); addEventListener("resize", fit);
+</script>
+</body>
+</html>
