@@ -65,8 +65,13 @@
 
   /* cover */
   .cover { padding: 0; }
-  .cover .bg { position: absolute; inset: 0; background: url(img/camp-night.jpg) center/cover; opacity: .5; }
-  .cover .bg2 { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(4,6,12,.55) 0%, rgba(4,6,12,.35) 35%, rgba(4,6,12,.92) 70%, var(--ink) 100%); }
+  .cover .bg { position: absolute; inset: 0; background: radial-gradient(120mm 95mm at 50% 24%, rgba(56,168,248,.42), transparent 70%), radial-gradient(160mm 110mm at 85% 100%, rgba(47,123,240,.22), transparent 70%), var(--ink); }
+  .cover .bg2 { position: absolute; inset: 0; background-image: linear-gradient(rgba(120,190,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(120,190,255,.06) 1px, transparent 1px); background-size: 12mm 12mm; -webkit-mask-image: radial-gradient(140mm 110mm at 50% 30%, #000, transparent 75%); mask-image: radial-gradient(140mm 110mm at 50% 30%, #000, transparent 75%); }
+  .cover .mark { position: absolute; left: 50%; top: 34mm; width: 92mm; transform: translateX(-50%); filter: drop-shadow(0 0 14mm rgba(79,214,255,.55)); }
+  .cover .strip { position: absolute; left: 20mm; right: 20mm; top: 118mm; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; }
+  .cover .strip figure { margin: 0; position: relative; border-radius: 3.5mm; overflow: hidden; height: 46mm; border: 1px solid rgba(120,190,255,.25); }
+  .cover .strip img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .cover .strip figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 5mm 2.5mm 2mm; font: 700 5.6pt/1.2 Orbitron; letter-spacing: .14em; text-transform: uppercase; color: #fff; background: linear-gradient(180deg, transparent, rgba(4,6,12,.9)); }
   .cover .in { position: absolute; left: 20mm; right: 20mm; bottom: 26mm; }
   .cover .logo { position: absolute; left: 20mm; top: 20mm; height: 10mm; }
   .cover h1 { font-size: 40pt; line-height: 1; font-weight: 800; margin: 5mm 0 6mm; }
@@ -102,6 +107,13 @@
 <section class="page cover">
   <div class="bg"></div><div class="bg2"></div>
   <img class="logo" src="img/zigsmotion-logo.svg" alt="ZigsMotion">
+  <img class="mark" src="img/zigsmotion-mark.svg" alt="">
+  <div class="strip">
+    <figure><img src="img/pahadi-girl.jpg" alt=""><figcaption>Pixar-style film</figcaption></figure>
+    <figure><img src="img/perfume-ugc.jpg" alt=""><figcaption>Product ad</figcaption></figure>
+    <figure><img src="img/iron-energy.jpg" alt=""><figcaption>VFX</figcaption></figure>
+    <figure><img src="img/3d-family.jpg" alt=""><figcaption>3D models</figcaption></figure>
+  </div>
   <div class="in">
     <span class="eyebrow">Whitepaper &amp; Investment Proposal</span>
     <h1>The AI film studio.<br><span class="g">From an idea to a<br>finished film.</span></h1>
@@ -129,7 +141,7 @@
     </div>
     <div class="card">
       <h3>The proof</h3>
-      <p style="margin:0">Our tools already power real channels: <b>Lucky &amp; Nikki World</b> (Pixar-style family series, <b>40M+ views</b>, reels at 10M+ and 8M+), <b>IceHill Music</b> and <b>IceHill Bhakti</b> on YouTube, and <b>Blacklight Motion</b>'s client ads. Full-length AI films, such as an 8½-minute music video, show the long-form edge.</p>
+      <p style="margin:0">Our tools already power real channels: <b>Lucky &amp; Nikki World</b> (Pixar-style family series, <b>40M+ views</b>, reels at 10M+ and 8M+), <b>IceHill Music</b> on YouTube, and <b>Blacklight Motion</b>'s client ads. Full-length AI films, such as an 8½-minute music video, show the long-form edge.</p>
     </div>
   </div>
 
@@ -321,9 +333,8 @@
   <div class="grid4" style="margin-bottom:5mm">
     <img class="shot" src="img/Dd2M8lazkln.jpg" alt=""><img class="shot" src="img/Dc0tdlAzScO.jpg" alt=""><img class="shot" src="img/DeixF6fzLnd.jpg" alt=""><img class="shot" src="img/DerHBADzlbN.jpg" alt="">
   </div>
-  <div class="grid3" style="margin-bottom:4mm">
+  <div class="grid2" style="margin-bottom:4mm">
     <div class="card" style="text-align:center"><img src="img/icehill-music.jpg" alt="" style="width:14mm;height:14mm;border-radius:50%"><h3 style="margin-top:2mm">IceHill Music</h3><p style="margin:0">17 original songs &amp; music videos on YouTube.</p></div>
-    <div class="card" style="text-align:center"><img src="img/icehill-bhakti.jpg" alt="" style="width:14mm;height:14mm;border-radius:50%"><h3 style="margin-top:2mm">IceHill Bhakti</h3><p style="margin:0">18 devotional films &amp; bhajans, incl. live-action Narasimha.</p></div>
     <div class="card" style="text-align:center"><img src="img/blacklight.jpg" alt="" style="width:14mm;height:14mm;border-radius:50%"><h3 style="margin-top:2mm">Blacklight Motion</h3><p style="margin:0">AI ads &amp; films for brands, incl. client EaseMyPrint.</p></div>
   </div>
   <div class="grid2">
@@ -511,7 +522,7 @@
   <span class="eyebrow">13 · Team</span>
   <h2>Builders who <span class="g">already ship.</span></h2>
   <div class="grid2" style="margin-bottom:5mm">
-    <div class="card"><h3>Jagjeet Jena · Founder</h3><p style="margin:0">Builds the ZigsMotion platform and its AI pipeline; creator behind Lucky &amp; Nikki World, IceHill Music &amp; IceHill Bhakti, and Blacklight Motion; lyricist on <i>Oh Mere Ranjhana</i>. <span class="tbc">full bio to confirm</span></p></div>
+    <div class="card"><h3>Jagjeet Jena · Founder</h3><p style="margin:0">Builds the ZigsMotion platform and its AI pipeline; creator behind Lucky &amp; Nikki World, IceHill Music and Blacklight Motion; lyricist on <i>Oh Mere Ranjhana</i>. <span class="tbc">full bio to confirm</span></p></div>
     <div class="card"><h3>Hiring in Doha</h3><p style="margin:0">AI/ML engineer · full-stack engineer · Arabic content &amp; voice lead · GCC partnerships &amp; sales. <span class="tbc">co-founders &amp; advisors to confirm</span></p></div>
   </div>
   <span class="eyebrow">14 · Risks &amp; mitigations</span>
