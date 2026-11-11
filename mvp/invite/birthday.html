@@ -3,211 +3,474 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Aanya turns 5! · You're invited</title>
+<title>Aanya's Jungle Party · She turns 5!</title>
 <meta name="description" content="Join us for Aanya's 5th birthday jungle party. Sample invitation made with ZigsMotion.">
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#0F3B2E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #FFF8EF; --ink: #2B2340; --soft: #6B6280; --peach: #FF8A7A; --sun: #FFC845; --mint: #2EC4A0; --sky: #5AA9F6; --grape: #8C6CF2;
-    --card: rgba(255,255,255,.78); --line: rgba(43,35,64,.08);
+    --jungle: #0F3B2E; --leaf: #2F8F5B; --leaf2: #45B36B; --gold: #F2B84B; --gold2: #FFE29A; --gold3: #C98A1E;
+    --cream: #FFF7E8; --ink: #23201C; --soft: #6E675C; --coral: #FF7E6B; --grape: #7B5CF0; --sky: #4FA8F0;
   }
-  * { box-sizing: border-box; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html { scroll-behavior: smooth; }
-  body { margin: 0; background: var(--cream); color: var(--ink); font: 16px/1.55 Nunito, system-ui, sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+  body { margin: 0; background: var(--jungle); color: var(--ink); font: 16px/1.55 Nunito, system-ui, sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
   body.locked { overflow: hidden; height: 100svh; }
-  h1, h2, h3, .f { font-family: Fredoka, Nunito, sans-serif; }
-  #sky { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
-  main { position: relative; z-index: 1; }
+  svg { display: block; overflow: visible; }
+  svg * { transform-box: fill-box; }
 
-  /* ── envelope intro ── */
-  .env { position: fixed; inset: 0; z-index: 20; display: grid; place-items: center; background: radial-gradient(120% 90% at 50% 10%, #FFE7C7 0%, #FFD0B5 45%, #FFB3A1 100%); transition: opacity .8s ease .9s, visibility 0s 1.7s; }
-  .env.gone { opacity: 0; visibility: hidden; }
-  .env__wrap { display: grid; justify-items: center; gap: 26px; padding: 24px; }
-  .env__hi { font: 600 15px Fredoka, sans-serif; letter-spacing: .18em; text-transform: uppercase; color: #8A3B2E; opacity: .8; }
-  .env__box { position: relative; width: min(78vw, 340px); aspect-ratio: 1.45; perspective: 900px; cursor: pointer; filter: drop-shadow(0 30px 40px rgba(138,59,46,.28)); border: 0; background: none; padding: 0; }
-  .env__back, .env__front, .env__flap, .env__letter { position: absolute; left: 0; right: 0; }
-  .env__back { inset: 0; border-radius: 14px; background: #F36B5B; }
-  .env__letter { left: 7%; right: 7%; top: 9%; height: 82%; border-radius: 10px; background: #fff; display: grid; place-items: center; text-align: center; padding: 10px; opacity: 0; transition: opacity .25s ease .3s, transform .9s cubic-bezier(.2,.8,.2,1) .35s; }
-  .env__letter b { font: 700 clamp(22px, 7vw, 30px)/1.05 Fredoka, sans-serif; color: var(--ink); }
-  .env__letter span { display: block; font-size: 13px; color: var(--soft); margin-top: 4px; }
-  .env__front { inset: 0; border-radius: 14px; background:
-      linear-gradient(to top right, #FF8A7A 49.6%, transparent 50%) left / 50.5% 100% no-repeat,
-      linear-gradient(to top left, #FF8A7A 49.6%, transparent 50%) right / 50.5% 100% no-repeat,
-      linear-gradient(to top, #FF9B8C 0 46%, transparent 46%); }
-  .env__flap { top: 0; height: 58%; transform-origin: top; transform-style: preserve-3d; transition: transform .7s cubic-bezier(.5,0,.3,1); z-index: 3; }
-  .env__flap::before { content: ""; position: absolute; inset: 0; background: #E85A4A; clip-path: polygon(0 0, 100% 0, 50% 100%); border-radius: 14px 14px 0 0; }
-  .env__seal { position: absolute; left: 50%; top: 46%; width: 54px; height: 54px; margin: -27px 0 0 -27px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #FFE38A, var(--sun) 55%, #E0A21A); display: grid; place-items: center; font: 700 22px Fredoka, sans-serif; color: #8A3B2E; z-index: 4; box-shadow: 0 6px 14px rgba(0,0,0,.18); transition: transform .4s, opacity .3s; }
-  .env.open .env__seal { transform: scale(.2) rotate(-40deg); opacity: 0; }
-  .env.open .env__flap { transform: rotateX(180deg); z-index: 0; }
-  .env.open .env__letter { opacity: 1; transform: translateY(-62%); z-index: 2; }
-  .env__tap { font: 600 15px Fredoka, sans-serif; color: #8A3B2E; display: flex; align-items: center; gap: 8px; animation: nudge 1.6s ease-in-out infinite; }
-  .env__tap i { width: 8px; height: 8px; border-radius: 50%; background: #8A3B2E; }
-  @keyframes nudge { 50% { transform: translateY(-4px); opacity: .7; } }
+  /* ── golden ticket intro ── */
+  .intro { position: fixed; inset: 0; z-index: 40; display: grid; place-items: center; background: radial-gradient(90% 70% at 50% 40%, #1E5B45 0%, #0F3B2E 55%, #08261D 100%); transition: opacity .7s ease .55s, visibility 0s 1.3s; cursor: pointer; }
+  .intro.gone { opacity: 0; visibility: hidden; }
+  .intro__in { display: grid; justify-items: center; gap: 22px; padding: 20px; }
+  .intro__hi { color: var(--gold2); font: 600 13px Fredoka; letter-spacing: .3em; text-transform: uppercase; opacity: .85; }
+  .ticket { position: relative; display: grid; grid-template-columns: 74px 1fr; width: min(88vw, 400px); height: 190px; border: 0; padding: 0; cursor: pointer; background: none; filter: drop-shadow(0 26px 40px rgba(0,0,0,.45)); animation: floaty 3.4s ease-in-out infinite; }
+  @keyframes floaty { 50% { transform: translateY(-8px) rotate(-1deg); } }
+  .t-part { position: relative; overflow: hidden; background: linear-gradient(135deg, #B8761A 0%, #F2B84B 22%, #FFE7A6 38%, #E9A93A 55%, #FFDD8A 72%, #B8761A 100%); color: #4A2A05; transition: transform .8s cubic-bezier(.6,-0.2,.3,1.2), opacity .6s ease .3s; }
+  .t-part::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.65) 46%, transparent 60%); transform: translateX(-120%); animation: foil 3.2s ease-in-out infinite; }
+  @keyframes foil { 60%, 100% { transform: translateX(120%); } }
+  .t-stub { border-radius: 16px 0 0 16px; display: grid; place-items: center; -webkit-mask: radial-gradient(circle at 100% 0, transparent 11px, #000 12px) top / 100% 51% no-repeat, radial-gradient(circle at 100% 100%, transparent 11px, #000 12px) bottom / 100% 51% no-repeat; mask: radial-gradient(circle at 100% 0, transparent 11px, #000 12px) top / 100% 51% no-repeat, radial-gradient(circle at 100% 100%, transparent 11px, #000 12px) bottom / 100% 51% no-repeat; }
+  .t-stub span { writing-mode: vertical-rl; transform: rotate(180deg); font: 700 13px Fredoka; letter-spacing: .32em; }
+  .t-main { border-radius: 0 16px 16px 0; padding: 20px 22px; text-align: left; border-left: 2px dashed rgba(74,42,5,.45); -webkit-mask: radial-gradient(circle at 0 0, transparent 11px, #000 12px) top / 100% 51% no-repeat, radial-gradient(circle at 0 100%, transparent 11px, #000 12px) bottom / 100% 51% no-repeat; mask: radial-gradient(circle at 0 0, transparent 11px, #000 12px) top / 100% 51% no-repeat, radial-gradient(circle at 0 100%, transparent 11px, #000 12px) bottom / 100% 51% no-repeat; }
+  .t-main small { font: 700 11px Fredoka; letter-spacing: .28em; text-transform: uppercase; opacity: .75; }
+  .t-main b { display: block; font: 700 34px/1 Fredoka; margin: 8px 0 10px; letter-spacing: -.01em; }
+  .t-main em { font-style: normal; font: 600 14px Fredoka; display: inline-flex; gap: 8px; align-items: center; padding: 5px 10px; border-radius: 99px; background: rgba(74,42,5,.12); }
+  .t-paw { position: absolute; right: 16px; bottom: 14px; width: 46px; opacity: .3; }
+  .intro.torn .t-stub { transform: translate(-60px, 30px) rotate(-24deg); opacity: 0; }
+  .intro.torn .t-main { transform: translate(40px, -20px) rotate(8deg) scale(1.05); opacity: 0; }
+  .intro.torn .ticket { animation: none; }
+  .intro__tap { color: var(--gold2); font: 600 14px Fredoka; display: flex; align-items: center; gap: 10px; opacity: .9; }
+  .intro__tap i { width: 26px; height: 26px; border-radius: 50%; border: 2px solid currentColor; animation: ping 1.6s ease-out infinite; }
+  @keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(255,226,154,.6); } 100% { box-shadow: 0 0 0 16px rgba(255,226,154,0); } }
 
-  /* ── page ── */
+  /* ── hero jungle scene ── */
+  .scene { position: relative; height: 100svh; min-height: 640px; overflow: hidden; background: linear-gradient(180deg, #FFE7B8 0%, #FFC98E 34%, #FFA585 62%, #F48A7B 100%); isolation: isolate; }
+  .sun { position: absolute; left: 50%; top: 40%; width: 62vmin; height: 62vmin; margin: -31vmin 0 0 -31vmin; border-radius: 50%; background: radial-gradient(circle, #FFF8D9 0%, #FFE08A 30%, rgba(255,214,120,.5) 48%, rgba(255,200,120,0) 70%); animation: glow 7s ease-in-out infinite; z-index: 0; }
+  @keyframes glow { 50% { transform: scale(1.06); opacity: .85; } }
+  .cloud { position: absolute; height: 34px; border-radius: 40px; background: rgba(255,255,255,.75); z-index: 1; animation: drift linear infinite; }
+  .cloud::before, .cloud::after { content: ""; position: absolute; border-radius: 50%; background: inherit; }
+  .cloud::before { width: 44%; height: 160%; left: 16%; bottom: 30%; }
+  .cloud::after { width: 34%; height: 120%; left: 50%; bottom: 40%; }
+  @keyframes drift { from { transform: translateX(-30vw); } to { transform: translateX(130vw); } }
+  #balloons { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; }
+  .layer { position: absolute; left: -5%; width: 110%; z-index: 3; }
+  .layer svg { width: 100%; height: 100%; }
+  .hills-back { bottom: 18%; height: 30%; }
+  .hills-mid { bottom: 5%; height: 30%; z-index: 4; }
+  .ground { bottom: -2%; height: 20%; z-index: 7; }
+
+  .title { position: absolute; left: 0; right: 0; top: max(6svh, 46px); text-align: center; z-index: 9; padding: 0 16px; }
+  .title small { display: inline-block; font: 700 12px Fredoka; letter-spacing: .3em; text-transform: uppercase; color: #8A3A1E; background: rgba(255,250,235,.7); padding: 6px 14px; border-radius: 99px; backdrop-filter: blur(6px); }
+  .title h1 { margin: 12px 0 0; font: 700 clamp(56px, 16vw, 116px)/.86 Fredoka; letter-spacing: -.02em; color: #fff; text-shadow: 0 3px 0 #E86A4F, 0 6px 0 #C94F38, 0 14px 26px rgba(122,40,20,.35); }
+  .title h1 span { display: inline-block; animation: hop 2.6s cubic-bezier(.3,1.6,.5,1) infinite; animation-delay: calc(var(--i) * .1s); }
+  @keyframes hop { 0%, 55%, 100% { transform: translateY(0); } 25% { transform: translateY(-12px) rotate(-4deg); } }
+  .title h2 { margin: 8px 0 0; font: 700 clamp(22px, 6vw, 38px) Fredoka; color: var(--jungle); letter-spacing: .02em; }
+  .badge5 { display: inline-grid; place-items: center; vertical-align: middle; margin-left: 6px; width: 1.7em; height: 1.7em; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #FFF1BE, var(--gold) 50%, var(--gold3)); color: #fff; font: 700 1em Fredoka; text-shadow: 0 2px 0 #B3701A; box-shadow: 0 4px 0 #B3701A, 0 10px 18px rgba(120,60,10,.35); animation: spin5 5s ease-in-out infinite; }
+  @keyframes spin5 { 0%, 70%, 100% { transform: rotate(-8deg); } 80% { transform: rotate(352deg) scale(1.15); } }
+
+  /* characters */
+  .char { position: absolute; z-index: 6; }
+  .lion { left: 50%; bottom: 5%; width: min(40vw, 250px); margin-left: calc(min(40vw, 250px) / -2); z-index: 8; }
+  .elephant { left: -3%; bottom: 7%; width: min(46vw, 330px); }
+  .giraffe { right: -4%; bottom: 3%; height: min(62svh, 560px); }
+  .giraffe svg { height: 100%; width: auto; }
+  .monkey { left: 7%; top: -2%; width: min(22vw, 130px); z-index: 5; }
+  .parrot { top: 30%; left: 0; width: min(18vw, 92px); z-index: 5; animation: fly 14s linear infinite 2s; opacity: 0; }
+  @keyframes fly { 0% { transform: translate(-20vw, 0); opacity: 1; } 25% { transform: translate(30vw, -6svh); } 50% { transform: translate(65vw, 2svh); } 75% { transform: translate(95vw, -4svh); opacity: 1; } 76%, 100% { transform: translate(125vw, -4svh); opacity: 0; } }
+
+  .lion-all { animation: bounce 1.8s cubic-bezier(.4,0,.4,1) infinite; transform-origin: 50% 100%; }
+  @keyframes bounce { 0%, 100% { transform: translateY(0) scaleY(1); } 45% { transform: translateY(-14px) scaleY(1.02); } 90% { transform: translateY(0) scaleY(.96); } }
+  .lion-head { animation: tilt 3.6s ease-in-out infinite; transform-origin: 50% 85%; }
+  @keyframes tilt { 50% { transform: rotate(6deg); } }
+  .lion-arm { animation: wave .9s ease-in-out infinite alternate; transform-origin: 0% 100%; }
+  @keyframes wave { from { transform: rotate(-16deg); } to { transform: rotate(18deg); } }
+  .hat { animation: hat 1.8s ease-in-out infinite; transform-origin: 50% 100%; }
+  @keyframes hat { 50% { transform: rotate(-10deg); } }
+  .blink { animation: blink 4.2s infinite; transform-origin: 50% 50%; }
+  @keyframes blink { 0%, 93%, 100% { transform: scaleY(1); } 96% { transform: scaleY(.1); } }
+  .tail { animation: tail 1.4s ease-in-out infinite alternate; transform-origin: 0% 50%; }
+  @keyframes tail { to { transform: rotate(-24deg); } }
+  .ear-flap { animation: flap 1.3s ease-in-out infinite; transform-origin: 85% 30%; }
+  @keyframes flap { 50% { transform: rotate(-14deg) scaleX(.92); } }
+  .trunk { animation: trunk 2.4s ease-in-out infinite; transform-origin: 20% 0%; }
+  @keyframes trunk { 50% { transform: rotate(-18deg); } }
+  .eleph-all { animation: sway 4s ease-in-out infinite; transform-origin: 50% 100%; }
+  @keyframes sway { 50% { transform: rotate(-2deg) translateY(-4px); } }
+  .neck { animation: neck 5s ease-in-out infinite; transform-origin: 50% 100%; }
+  @keyframes neck { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(4deg); } }
+  .g-head { animation: nod 2.5s ease-in-out infinite; transform-origin: 20% 80%; }
+  @keyframes nod { 50% { transform: rotate(-7deg); } }
+  .swing { animation: swing 2.8s ease-in-out infinite; transform-origin: 50% 0%; }
+  @keyframes swing { 0%, 100% { transform: rotate(16deg); } 50% { transform: rotate(-16deg); } }
+  .m-tail { animation: tail 1s ease-in-out infinite alternate; transform-origin: 0% 0%; }
+  .wing { animation: wing .28s ease-in-out infinite alternate; transform-origin: 30% 80%; }
+  @keyframes wing { to { transform: rotate(-38deg) scaleY(.7); } }
+
+  .leafy { position: absolute; z-index: 9; pointer-events: none; }
+  .leafy svg { width: 100%; }
+  .leafy.l1 { left: -8%; bottom: -6%; width: min(46vw, 320px); }
+  .leafy.l2 { right: -10%; bottom: -8%; width: min(50vw, 340px); }
+  .leafy .lf { animation: leaf 5s ease-in-out infinite; transform-origin: 50% 100%; }
+  .leafy .lf:nth-child(2) { animation-delay: -1.5s; } .leafy .lf:nth-child(3) { animation-delay: -3s; }
+  @keyframes leaf { 50% { transform: rotate(-5deg); } }
+
+  .scroll { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 12; display: grid; justify-items: center; gap: 4px; color: #fff; font: 600 12px Fredoka; text-decoration: none; text-shadow: 0 1px 6px rgba(0,0,0,.4); }
+  .scroll i { width: 22px; height: 34px; border: 2px solid #fff; border-radius: 99px; position: relative; }
+  .scroll i::after { content: ""; position: absolute; left: 50%; top: 6px; width: 4px; height: 7px; margin-left: -2px; border-radius: 4px; background: #fff; animation: wheel 1.6s infinite; }
+  @keyframes wheel { 70% { transform: translateY(11px); opacity: 0; } 100% { opacity: 0; } }
+
+  /* ── details on deep jungle ── */
+  .deep { position: relative; padding: 46px 0 30px; background: radial-gradient(60% 40% at 0% 0%, rgba(69,179,107,.18), transparent 70%), radial-gradient(50% 40% at 100% 30%, rgba(242,184,75,.12), transparent 70%), var(--jungle); }
   .wrap { width: min(560px, 100%); margin: 0 auto; padding: 0 18px; }
-  .hero { min-height: 100svh; display: grid; place-items: center; text-align: center; padding: 80px 0 40px; }
-  .eyebrow { display: inline-block; font: 600 13px Fredoka, sans-serif; letter-spacing: .2em; text-transform: uppercase; color: #B4473A; background: rgba(255,255,255,.7); padding: 6px 14px; border-radius: 99px; backdrop-filter: blur(6px); }
-  .title { margin: 18px 0 6px; font-weight: 700; font-size: clamp(48px, 15vw, 92px); line-height: .95; letter-spacing: -.02em; }
-  .title span { display: inline-block; animation: hop 2.4s ease-in-out infinite; animation-delay: calc(var(--i) * .08s); }
-  .title .c1 { color: var(--peach); } .title .c2 { color: var(--sun); } .title .c3 { color: var(--mint); } .title .c4 { color: var(--sky); } .title .c5 { color: var(--grape); }
-  @keyframes hop { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-10px) rotate(-3deg); } }
-  .five { display: inline-grid; place-items: center; width: 1.15em; height: 1.15em; border-radius: 50%; background: var(--ink); color: var(--sun); font-size: .9em; transform: rotate(-8deg); box-shadow: 0 10px 0 -2px var(--sun); }
-  .sub { font-size: 18px; color: var(--soft); margin: 10px auto 0; max-width: 30ch; }
-  .scroll { margin-top: 34px; display: inline-flex; flex-direction: column; align-items: center; gap: 6px; color: var(--soft); font-size: 13px; text-decoration: none; }
-  .scroll i { width: 24px; height: 38px; border: 2px solid currentColor; border-radius: 99px; position: relative; }
-  .scroll i::after { content: ""; position: absolute; left: 50%; top: 7px; width: 4px; height: 8px; margin-left: -2px; border-radius: 4px; background: currentColor; animation: wheel 1.6s infinite; }
-  @keyframes wheel { 70% { transform: translateY(12px); opacity: 0; } 100% { opacity: 0; } }
-
-  .card { background: var(--card); border: 1px solid rgba(255,255,255,.9); border-radius: 26px; padding: 22px; margin: 0 0 18px; box-shadow: 0 20px 50px -30px rgba(43,35,64,.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
-  .card h2 { font-weight: 600; font-size: 24px; margin: 0 0 12px; }
-  .reveal { opacity: 0; transform: translateY(26px) scale(.98); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1); }
+  .sec-k { display: block; text-align: center; color: var(--gold); font: 600 12px Fredoka; letter-spacing: .32em; text-transform: uppercase; }
+  .sec-h { text-align: center; color: var(--cream); font: 700 clamp(28px, 8vw, 38px) Fredoka; margin: 6px 0 18px; }
+  .card { position: relative; background: var(--cream); border-radius: 26px; padding: 22px; margin: 0 0 30px; box-shadow: 0 0 0 1px rgba(242,184,75,.5), 0 0 0 7px rgba(255,247,232,.06), 0 26px 50px -24px rgba(0,0,0,.6); }
+  .card::before { content: ""; position: absolute; inset: 8px; border-radius: 20px; border: 1.5px dashed rgba(201,138,30,.35); pointer-events: none; }
+  .reveal { opacity: 0; transform: translateY(30px) scale(.97); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.9,.25,1.1); }
   .reveal.in { opacity: 1; transform: none; }
 
   .when { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; }
-  .date { width: 86px; border-radius: 18px; overflow: hidden; text-align: center; background: #fff; box-shadow: 0 8px 20px -10px rgba(43,35,64,.4); }
-  .date b { display: block; background: var(--peach); color: #fff; font: 600 13px Fredoka; padding: 5px 0; letter-spacing: .12em; }
-  .date strong { display: block; font: 700 38px/1.15 Fredoka; }
-  .date em { display: block; font-style: normal; font-size: 12px; color: var(--soft); padding-bottom: 6px; }
-  .when h3 { margin: 0; font-size: 21px; }
+  .cal { width: 86px; border-radius: 18px; overflow: hidden; text-align: center; background: #fff; box-shadow: 0 10px 20px -10px rgba(0,0,0,.35); }
+  .cal b { display: block; background: linear-gradient(var(--coral), #F25F4C); color: #fff; font: 600 13px Fredoka; padding: 5px 0; letter-spacing: .14em; }
+  .cal strong { display: block; font: 700 38px/1.15 Fredoka; }
+  .cal em { display: block; font-style: normal; font-size: 12px; color: var(--soft); padding-bottom: 6px; }
+  .when h3 { margin: 0; font: 600 21px Fredoka; }
   .when p { margin: 2px 0 0; color: var(--soft); }
-  .count { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 18px; }
-  .count div { background: #fff; border-radius: 16px; text-align: center; padding: 10px 4px; }
-  .count b { display: block; font: 700 28px/1 Fredoka; font-variant-numeric: tabular-nums; }
-  .count span { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--soft); }
-  .btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-  .btn { flex: 1 1 auto; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 16px; border-radius: 14px; border: 0; background: var(--ink); color: #fff; font: 600 15px Fredoka, sans-serif; text-decoration: none; cursor: pointer; transition: transform .15s; }
-  .btn:active { transform: scale(.97); }
-  .btn--light { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--line); }
-  .btn--wa { background: #25D366; }
 
-  .theme { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 4px; }
-  .theme div { background: #fff; border-radius: 18px; padding: 14px 8px; text-align: center; font-size: 13px; color: var(--soft); }
-  .theme .e { display: block; font-size: 30px; line-height: 1.2; animation: sway 3s ease-in-out infinite; }
-  .theme div:nth-child(2) .e { animation-delay: .4s; } .theme div:nth-child(3) .e { animation-delay: .8s; }
-  @keyframes sway { 50% { transform: rotate(8deg) translateY(-3px); } }
+  .flip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 18px; }
+  .flip div { text-align: center; }
+  .flip b { position: relative; display: block; perspective: 300px; height: 58px; }
+  .flip b span { position: absolute; inset: 0; display: grid; place-items: center; border-radius: 12px; background: linear-gradient(#23493B 50%, #1B3D31 50%); color: var(--gold2); font: 700 28px Fredoka; font-variant-numeric: tabular-nums; box-shadow: 0 6px 12px -6px rgba(0,0,0,.5); }
+  .flip b span::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: rgba(0,0,0,.35); }
+  .flip b.go span { animation: flipIn .45s ease-out; }
+  @keyframes flipIn { from { transform: rotateX(-90deg); } to { transform: rotateX(0); } }
+  .flip small { display: block; margin-top: 6px; font: 600 10px Fredoka; letter-spacing: .2em; text-transform: uppercase; color: var(--soft); }
+
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .btn { flex: 1 1 auto; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 16px; border-radius: 14px; border: 0; background: var(--jungle); color: var(--gold2); font: 600 15px Fredoka, sans-serif; text-decoration: none; cursor: pointer; transition: transform .15s, box-shadow .2s; box-shadow: 0 4px 0 #082219; }
+  .btn:active { transform: translateY(3px); box-shadow: 0 1px 0 #082219; }
+  .btn--gold { background: linear-gradient(var(--gold2), var(--gold)); color: #4A2A05; box-shadow: 0 4px 0 var(--gold3); }
+  .btn--gold:active { box-shadow: 0 1px 0 var(--gold3); }
+  .btn--wa { background: #25D366; color: #fff; box-shadow: 0 4px 0 #148A43; }
+
+  .theme { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .theme > div { background: #fff; border-radius: 18px; padding: 14px 8px 12px; text-align: center; font-size: 13px; color: var(--soft); box-shadow: 0 6px 14px -10px rgba(0,0,0,.4); }
+  .theme svg { width: 46px; height: 46px; margin: 0 auto 6px; }
+  .theme > div:hover svg, .theme > div:active svg { animation: jelly .6s; }
+  @keyframes jelly { 30% { transform: scale(1.25, .8); } 60% { transform: scale(.9, 1.15); } }
+  .swatch { display: flex; justify-content: center; gap: 4px; margin: 2px auto 4px; }
+  .swatch i { width: 12px; height: 12px; border-radius: 50%; }
 
   .plan { list-style: none; margin: 0; padding: 0; position: relative; }
-  .plan::before { content: ""; position: absolute; left: 21px; top: 8px; bottom: 8px; width: 3px; border-radius: 3px; background: linear-gradient(var(--peach), var(--sun), var(--mint), var(--sky)); transform-origin: top; transform: scaleY(var(--p, 0)); transition: transform 1.2s ease; }
-  .plan.in::before { --p: 1; }
-  .plan li { display: grid; grid-template-columns: 46px 1fr; gap: 12px; align-items: center; padding: 8px 0; }
-  .plan .dot { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font-size: 22px; background: #fff; box-shadow: 0 6px 14px -8px rgba(43,35,64,.5); position: relative; z-index: 1; }
+  .plan::before { content: ""; position: absolute; left: 25px; top: 10px; bottom: 10px; width: 4px; border-radius: 4px; background: linear-gradient(var(--coral), var(--gold), var(--leaf2), var(--sky)); transform-origin: top; transform: scaleY(0); transition: transform 1.4s ease; }
+  .plan.in::before { transform: scaleY(1); }
+  .plan li { display: grid; grid-template-columns: 54px 1fr; gap: 12px; align-items: center; padding: 8px 0; opacity: 0; transform: translateX(-12px); transition: opacity .5s ease, transform .5s ease; transition-delay: calc(var(--i) * .15s + .3s); }
+  .plan.in li { opacity: 1; transform: none; }
+  .plan .dot { width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; background: #fff; box-shadow: 0 6px 14px -8px rgba(0,0,0,.5); position: relative; z-index: 1; }
+  .plan .dot svg { width: 32px; height: 32px; }
   .plan b { display: block; font: 600 17px Fredoka; }
   .plan span { color: var(--soft); font-size: 14px; }
 
+  .rsvp-head { display: grid; grid-template-columns: 84px 1fr; gap: 14px; align-items: center; margin-bottom: 14px; }
+  .mascot { width: 84px; transition: transform .4s cubic-bezier(.3,1.8,.5,1), filter .3s; }
+  .mood-yes .mascot { animation: cheer .5s ease-in-out 3; }
+  @keyframes cheer { 50% { transform: translateY(-14px) rotate(6deg) scale(1.1); } }
+  .mood-no .mascot { transform: rotate(8deg) scale(.95); filter: saturate(.7); }
+  .mascot .tear { opacity: 0; }
+  .mood-no .mascot .tear { animation: tear 1.4s ease-in infinite; }
+  @keyframes tear { from { transform: translateY(0); opacity: 1; } to { transform: translateY(14px); opacity: 0; } }
+  .rsvp-head h3 { margin: 0; font: 600 22px Fredoka; }
+  .rsvp-head p { margin: 2px 0 0; color: var(--soft); font-size: 14px; }
   form { display: grid; gap: 12px; }
-  label { display: grid; gap: 6px; font-size: 13px; color: var(--soft); }
-  input { font: inherit; padding: 13px 14px; border-radius: 14px; border: 1.5px solid var(--line); background: #fff; color: var(--ink); }
-  input:focus { outline: none; border-color: var(--sky); box-shadow: 0 0 0 4px rgba(90,169,246,.2); }
+  label { display: grid; gap: 6px; font-size: 13px; color: var(--soft); font-weight: 700; }
+  input { font: inherit; font-weight: 600; padding: 13px 14px; border-radius: 14px; border: 1.5px solid rgba(15,59,46,.15); background: #fff; color: var(--ink); }
+  input:focus { outline: none; border-color: var(--leaf); box-shadow: 0 0 0 4px rgba(47,143,91,.18); }
   .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .yn { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .yn input { position: absolute; opacity: 0; pointer-events: none; }
-  .yn label { display: block; text-align: center; padding: 12px; border-radius: 14px; background: #fff; border: 1.5px solid var(--line); color: var(--ink); font: 600 15px Fredoka; cursor: pointer; }
-  .yn input:checked + label { background: var(--mint); border-color: var(--mint); color: #fff; }
-  .yn input#no:checked + label { background: var(--peach); border-color: var(--peach); }
-  .thanks { display: none; text-align: center; padding: 10px 0; }
+  .yn label { display: block; text-align: center; padding: 13px 8px; border-radius: 14px; background: #fff; border: 1.5px solid rgba(15,59,46,.15); color: var(--ink); font: 600 15px Fredoka; cursor: pointer; transition: all .2s; }
+  .yn input:checked + label { background: var(--leaf); border-color: var(--leaf); color: #fff; transform: scale(1.03); }
+  .yn input#no:checked + label { background: var(--coral); border-color: var(--coral); }
+  .thanks { display: none; text-align: center; padding: 6px 0; }
   .thanks b { font: 700 26px Fredoka; display: block; }
+  .thanks p { margin: 4px 0 0; color: var(--soft); }
   .done form { display: none; } .done .thanks { display: block; }
 
-  footer { text-align: center; padding: 26px 0 40px; color: var(--soft); font-size: 13px; }
-  footer a { color: var(--ink); font-weight: 700; text-decoration: none; }
-  #confetti { position: fixed; inset: 0; z-index: 30; pointer-events: none; width: 100%; height: 100%; }
+  footer { text-align: center; padding: 0 0 44px; color: rgba(255,247,232,.6); font-size: 13px; }
+  footer a { color: var(--gold2); font-weight: 800; text-decoration: none; }
+  #confetti { position: fixed; inset: 0; z-index: 50; pointer-events: none; width: 100%; height: 100%; }
 
+  @media (max-width: 520px) {
+    .giraffe { height: 50svh; right: -10%; }
+    .elephant { width: 54vw; left: -12%; bottom: 13%; }
+    .lion { width: 44vw; margin-left: -22vw; bottom: 6%; }
+    .monkey { left: 2%; width: 24vw; }
+  }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
-    .reveal { opacity: 1; transform: none; }
+    .reveal, .plan li { opacity: 1; transform: none; }
   }
 </style>
 </head>
 <body class="locked">
-<canvas id="sky" aria-hidden="true"></canvas>
 <canvas id="confetti" aria-hidden="true"></canvas>
 
-<div class="env" id="env">
-  <div class="env__wrap">
-    <div class="env__hi">Psst… mail for you</div>
-    <button class="env__box" id="open" aria-label="Open the invitation">
-      <span class="env__back"></span>
-      <span class="env__letter"><span><b>You're invited!</b><span>a jungle birthday party</span></span></span>
-      <span class="env__front"></span>
-      <span class="env__flap"></span>
-      <span class="env__seal">A</span>
+<div class="intro" id="intro">
+  <div class="intro__in">
+    <div class="intro__hi">A very special delivery</div>
+    <button class="ticket" id="ticket" aria-label="Open your golden ticket">
+      <span class="t-part t-stub"><span>Admit one family</span></span>
+      <span class="t-part t-main">
+        <small>Golden ticket to</small>
+        <b>Aanya's<br>Jungle Party</b>
+        <em>Sat · 20 Dec · 4 PM</em>
+        <svg class="t-paw" viewBox="0 0 40 40" fill="#4A2A05"><ellipse cx="20" cy="27" rx="10" ry="8"/><circle cx="9" cy="16" r="4.5"/><circle cx="16" cy="10" r="4.5"/><circle cx="24" cy="10" r="4.5"/><circle cx="31" cy="16" r="4.5"/></svg>
+      </span>
     </button>
-    <div class="env__tap"><i></i> Tap to open</div>
+    <div class="intro__tap"><i></i> Tap to tear your ticket</div>
   </div>
 </div>
 
 <main>
-  <section class="hero wrap">
-    <div>
-      <span class="eyebrow">Roar! It's party time</span>
-      <h1 class="title f" aria-label="Aanya turns 5">
-        <span class="c1" style="--i:0">A</span><span class="c2" style="--i:1">a</span><span class="c3" style="--i:2">n</span><span class="c4" style="--i:3">y</span><span class="c5" style="--i:4">a</span><br>
-        <span style="--i:5;font-size:.48em;color:var(--ink)">turns</span> <span class="five" style="--i:6">5</span>
-      </h1>
-      <p class="sub">Come for a wild afternoon of games, a magic show and a very big cake.</p>
-      <a class="scroll" href="#details"><i></i>Party details</a>
+  <section class="scene" id="scene">
+    <div class="sun"></div>
+    <div class="cloud" style="top:12%;width:120px;animation-duration:46s;animation-delay:-10s"></div>
+    <div class="cloud" style="top:22%;width:80px;animation-duration:60s;animation-delay:-35s;opacity:.7"></div>
+    <div class="cloud" style="top:7%;width:96px;animation-duration:52s;animation-delay:-24s;opacity:.85"></div>
+    <canvas id="balloons" aria-hidden="true"></canvas>
+
+    <div class="layer hills-back" data-depth="0.15">
+      <svg viewBox="0 0 1200 300" preserveAspectRatio="none"><path fill="#7FB98A" opacity=".75" d="M0 170 C150 90 280 140 420 110 C560 80 640 160 800 120 C940 85 1060 140 1200 100 V300 H0Z"/><path fill="#5FA578" d="M0 220 C140 170 260 210 400 180 C560 145 700 220 860 185 C1000 155 1100 200 1200 175 V300 H0Z"/></svg>
     </div>
+    <div class="layer hills-mid" data-depth="0.3">
+      <svg viewBox="0 0 1200 300" preserveAspectRatio="none">
+        <path fill="#3C8F5E" d="M0 170 C120 120 230 160 360 140 C520 115 620 190 780 160 C930 130 1060 175 1200 150 V300 H0Z"/>
+        <g fill="#2E7A4E"><path d="M150 160 q30-90 60 0z"/><path d="M190 165 q40-130 80 0z"/><path d="M930 150 q35-110 70 0z"/><path d="M980 160 q28-80 56 0z"/><path d="M560 175 q26-70 52 0z"/></g>
+      </svg>
+    </div>
+
+    <div class="title">
+      <small>You're invited to</small>
+      <h1 aria-label="Aanya's"><span style="--i:0">A</span><span style="--i:1">a</span><span style="--i:2">n</span><span style="--i:3">y</span><span style="--i:4">a</span><span style="--i:5">'s</span></h1>
+      <h2>Jungle Party <span class="badge5">5</span></h2>
+    </div>
+
+    <div class="char monkey" data-depth="0.25" aria-hidden="true">
+      <svg viewBox="0 0 120 240">
+        <g class="swing">
+          <path d="M60 0 C55 40 66 70 60 110" stroke="#3E7A3A" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <ellipse cx="50" cy="40" rx="9" ry="5" fill="#4E9A48" transform="rotate(-30 50 40)"/><ellipse cx="68" cy="72" rx="9" ry="5" fill="#4E9A48" transform="rotate(30 68 72)"/>
+          <g transform="translate(0 100)">
+            <path class="m-tail" d="M72 82 C100 80 104 108 88 116" stroke="#7A4A26" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <path d="M48 26 C40 10 52 0 60 10" stroke="#7A4A26" stroke-width="9" fill="none" stroke-linecap="round"/>
+            <ellipse cx="60" cy="74" rx="22" ry="26" fill="#8B5A2E"/>
+            <ellipse cx="60" cy="80" rx="13" ry="16" fill="#E3B884"/>
+            <circle cx="36" cy="40" r="10" fill="#8B5A2E"/><circle cx="36" cy="40" r="5.5" fill="#E3B884"/>
+            <circle cx="84" cy="40" r="10" fill="#8B5A2E"/><circle cx="84" cy="40" r="5.5" fill="#E3B884"/>
+            <circle cx="60" cy="40" r="22" fill="#8B5A2E"/>
+            <path d="M44 42 C44 30 76 30 76 42 C78 56 42 56 44 42Z" fill="#E3B884"/>
+            <g class="blink"><circle cx="53" cy="38" r="3.4" fill="#2B1B12"/><circle cx="67" cy="38" r="3.4" fill="#2B1B12"/></g>
+            <path d="M53 48 q7 6 14 0" stroke="#5A3418" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <path d="M72 64 C88 66 92 80 86 92" stroke="#8B5A2E" stroke-width="8" fill="none" stroke-linecap="round"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <div class="char parrot" aria-hidden="true">
+      <svg viewBox="0 0 100 70">
+        <path d="M18 40 L2 58 L8 40 L0 36 Z" fill="#3E7DE0"/>
+        <ellipse cx="48" cy="38" rx="28" ry="15" fill="#E8453C"/>
+        <circle cx="74" cy="28" r="13" fill="#E8453C"/>
+        <path d="M84 26 q12 2 8 12 q-6-2-9-6z" fill="#F7C548"/>
+        <circle cx="76" cy="25" r="3" fill="#fff"/><circle cx="77" cy="25" r="1.6" fill="#1a1a1a"/>
+        <path class="wing" d="M40 34 C30 6 58 2 64 30 Z" fill="#2E9E57"/>
+        <path d="M36 44 C46 54 58 52 64 44" fill="#F7C548"/>
+      </svg>
+    </div>
+
+    <div class="char elephant" data-depth="0.45" aria-hidden="true">
+      <svg viewBox="0 0 300 230">
+        <g class="eleph-all">
+          <rect x="70" y="150" width="34" height="62" rx="14" fill="#8C9BB8"/><rect x="170" y="150" width="34" height="62" rx="14" fill="#8C9BB8"/>
+          <ellipse cx="140" cy="140" rx="96" ry="66" fill="#9DABC6"/>
+          <rect x="112" y="160" width="34" height="56" rx="14" fill="#A9B6CF"/><rect x="198" y="158" width="32" height="54" rx="14" fill="#A9B6CF"/>
+          <path d="M44 120 C20 116 18 140 30 146" stroke="#8C9BB8" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <g transform="translate(150 0)">
+            <g class="ear-flap"><path d="M10 50 C-60 30 -66 140 4 136 C24 120 30 70 10 50Z" fill="#8C9BB8"/><path d="M6 66 C-34 58 -38 120 2 118 C14 106 16 80 6 66Z" fill="#E9A9B6"/></g>
+            <circle cx="56" cy="88" r="52" fill="#A9B6CF"/>
+            <path class="trunk" d="M84 106 C112 112 118 140 104 158 C96 170 112 182 124 170" stroke="#A9B6CF" stroke-width="22" fill="none" stroke-linecap="round"/>
+            <path d="M84 120 q10 10 0 22" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <g class="blink"><ellipse cx="70" cy="76" rx="6" ry="8" fill="#2A2A3A"/><circle cx="72" cy="73" r="2.2" fill="#fff"/></g>
+            <circle cx="62" cy="102" r="8" fill="#F29DB0" opacity=".55"/>
+            <g class="hat" transform="translate(30 -8)"><path d="M26 0 L48 46 H4Z" fill="#FF7E6B"/><path d="M14 26 H38 M9 36 H43" stroke="#FFE29A" stroke-width="5"/><circle cx="26" cy="0" r="7" fill="#FFE29A"/></g>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <div class="char giraffe" data-depth="0.35" aria-hidden="true">
+      <svg viewBox="0 0 170 460">
+        <g class="neck">
+          <path d="M66 460 L60 150 C60 126 72 116 92 118 C108 120 114 134 112 150 L108 460Z" fill="#F4B942"/>
+          <g fill="#C97A2B" opacity=".85"><rect x="66" y="180" width="22" height="18" rx="8"/><rect x="86" y="220" width="18" height="20" rx="8"/><rect x="68" y="262" width="20" height="22" rx="8"/><rect x="88" y="306" width="16" height="18" rx="7"/><rect x="66" y="344" width="22" height="20" rx="8"/><rect x="86" y="392" width="18" height="22" rx="8"/></g>
+          <path d="M104 150 C116 190 112 300 116 460" stroke="#C97A2B" stroke-width="6" stroke-dasharray="8 10" fill="none"/>
+          <g class="g-head">
+            <rect x="70" y="40" width="7" height="34" rx="3.5" fill="#C97A2B"/><circle cx="73.5" cy="40" r="7" fill="#8A4B1C"/>
+            <rect x="94" y="38" width="7" height="34" rx="3.5" fill="#C97A2B"/><circle cx="97.5" cy="38" r="7" fill="#8A4B1C"/>
+            <ellipse cx="52" cy="92" rx="18" ry="9" fill="#F4B942" transform="rotate(-25 52 92)"/>
+            <ellipse cx="88" cy="104" rx="44" ry="34" fill="#F4B942"/>
+            <ellipse cx="102" cy="124" rx="34" ry="22" fill="#F8D47E"/>
+            <circle cx="96" cy="124" r="3" fill="#8A4B1C"/><circle cx="114" cy="122" r="3" fill="#8A4B1C"/>
+            <g class="blink"><ellipse cx="76" cy="94" rx="6.5" ry="8" fill="#2B1B12"/><circle cx="78" cy="91" r="2.4" fill="#fff"/></g>
+            <path d="M92 136 q12 8 22 -2" stroke="#8A4B1C" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="66" cy="112" r="7" fill="#FF8A7A" opacity=".45"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <div class="char lion" data-depth="0.6" aria-hidden="true">
+      <svg viewBox="0 -40 220 300">
+        <g class="lion-all">
+          <path class="tail" d="M172 220 C210 214 214 180 196 168" stroke="#E39B33" stroke-width="10" fill="none" stroke-linecap="round"/>
+          <circle cx="196" cy="166" r="11" fill="#B9581B"/>
+          <ellipse cx="110" cy="214" rx="58" ry="42" fill="#EFA63C"/>
+          <ellipse cx="110" cy="224" rx="34" ry="26" fill="#FFE0A6"/>
+          <ellipse cx="80" cy="252" rx="20" ry="11" fill="#E39B33"/><ellipse cx="140" cy="252" rx="20" ry="11" fill="#E39B33"/>
+          <ellipse cx="62" cy="214" rx="15" ry="26" fill="#E39B33"/>
+          <g class="lion-head">
+            <g id="mane" fill="#C4621F"></g>
+            <circle cx="110" cy="104" r="64" fill="#B9581B"/>
+            <circle cx="66" cy="62" r="16" fill="#F2B248"/><circle cx="66" cy="62" r="8" fill="#E9897A"/>
+            <circle cx="154" cy="62" r="16" fill="#F2B248"/><circle cx="154" cy="62" r="8" fill="#E9897A"/>
+            <circle cx="110" cy="108" r="52" fill="#F2B248"/>
+            <ellipse cx="110" cy="130" rx="28" ry="20" fill="#FFE6B3"/>
+            <g class="blink"><ellipse cx="90" cy="100" rx="7" ry="9" fill="#2B1B12"/><circle cx="92.5" cy="96.5" r="2.6" fill="#fff"/><ellipse cx="130" cy="100" rx="7" ry="9" fill="#2B1B12"/><circle cx="132.5" cy="96.5" r="2.6" fill="#fff"/></g>
+            <path d="M100 118 h20 l-10 10z" fill="#5A2E1E" stroke="#5A2E1E" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M110 128 q-8 10 -16 3 M110 128 q8 10 16 3" stroke="#5A2E1E" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+            <circle cx="76" cy="124" r="8" fill="#FF8A7A" opacity=".5"/><circle cx="144" cy="124" r="8" fill="#FF8A7A" opacity=".5"/>
+            <g class="hat" transform="translate(82 -38)"><path d="M28 0 L54 58 H2Z" fill="#7B5CF0"/><path d="M15 30 H41 M9 44 H47" stroke="#FFE29A" stroke-width="6"/><circle cx="28" cy="0" r="9" fill="#FF7E6B"/></g>
+          </g>
+          <g class="lion-arm"><path d="M148 200 L178 152" stroke="#EFA63C" stroke-width="26" stroke-linecap="round"/><circle cx="180" cy="148" r="14" fill="#FFE0A6"/><path d="M174 140 v-6 M181 138 v-6 M188 141 v-6" stroke="#E39B33" stroke-width="3" stroke-linecap="round"/></g>
+        </g>
+      </svg>
+    </div>
+
+    <div class="leafy l1" data-depth="0.8" aria-hidden="true">
+      <svg viewBox="0 0 300 260">
+        <g class="lf"><path d="M40 260 C-10 170 30 70 120 40 C120 120 100 200 40 260Z" fill="#1F6B45"/><path d="M40 260 C70 180 95 110 120 40" stroke="#164F33" stroke-width="3" fill="none"/></g>
+        <g class="lf"><path d="M90 260 C80 170 150 110 240 110 C210 180 160 230 90 260Z" fill="#2A8452"/><path d="M90 260 C140 200 190 150 240 110" stroke="#1F6B45" stroke-width="3" fill="none"/></g>
+        <g class="lf"><path d="M10 260 C0 210 20 170 60 150 C70 200 50 240 10 260Z" fill="#35A060"/></g>
+      </svg>
+    </div>
+    <div class="leafy l2" data-depth="0.8" aria-hidden="true">
+      <svg viewBox="0 0 300 260">
+        <g class="lf"><path d="M260 260 C310 170 270 70 180 40 C180 120 200 200 260 260Z" fill="#1F6B45"/><path d="M260 260 C230 180 205 110 180 40" stroke="#164F33" stroke-width="3" fill="none"/></g>
+        <g class="lf"><path d="M210 260 C220 170 150 110 60 110 C90 180 140 230 210 260Z" fill="#2A8452"/><path d="M210 260 C160 200 110 150 60 110" stroke="#1F6B45" stroke-width="3" fill="none"/></g>
+        <g class="lf"><path d="M290 260 C300 210 280 170 240 150 C230 200 250 240 290 260Z" fill="#35A060"/></g>
+      </svg>
+    </div>
+
+    <div class="layer ground" data-depth="0.5">
+      <svg viewBox="0 0 1200 200" preserveAspectRatio="none"><path fill="#2A7A4C" d="M0 70 C200 30 380 80 600 55 C820 30 1000 80 1200 50 V200 H0Z"/><path fill="#1F6440" d="M0 120 C220 90 420 130 600 110 C800 90 1000 130 1200 105 V200 H0Z"/></svg>
+    </div>
+
+    <a class="scroll" href="#details"><i></i>Party details</a>
   </section>
 
-  <div class="wrap">
-    <section class="card reveal" id="details">
-      <div class="when">
-        <div class="date"><b>DEC</b><strong>20</strong><em>Saturday</em></div>
-        <div><h3>4:00 to 7:00 PM</h3><p>Little Leaf Play Café<br>80 Feet Road, Koramangala, Bengaluru</p></div>
-      </div>
-      <div class="count" id="count" aria-live="polite">
-        <div><b data-k="d">0</b><span>days</span></div><div><b data-k="h">0</b><span>hours</span></div><div><b data-k="m">0</b><span>min</span></div><div><b data-k="s">0</b><span>sec</span></div>
-      </div>
-      <div class="btns">
-        <button class="btn" id="cal" type="button">📅 Add to calendar</button>
-        <a class="btn btn--light" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Koramangala%2C%20Bengaluru">📍 Directions</a>
-      </div>
-    </section>
-
-    <section class="card reveal">
-      <h2>Jungle safari theme</h2>
-      <div class="theme">
-        <div><span class="e">🦁</span>Wear your wildest animal print</div>
-        <div><span class="e">🌿</span>Green, yellow and orange</div>
-        <div><span class="e">🎁</span>Gifts optional, hugs required</div>
-      </div>
-    </section>
-
-    <section class="card reveal">
-      <h2>The plan</h2>
-      <ul class="plan" id="plan">
-        <li><span class="dot">🎈</span><div><b>4:00 · Welcome &amp; face paint</b><span>Pick your animal</span></div></li>
-        <li><span class="dot">🏃</span><div><b>4:30 · Jungle games</b><span>Treasure hunt and musical mats</span></div></li>
-        <li><span class="dot">🎩</span><div><b>5:15 · Magic show</b><span>With Magician Monty</span></div></li>
-        <li><span class="dot">🎂</span><div><b>6:00 · Cake time</b><span>Five candles, one big wish</span></div></li>
-        <li><span class="dot">👋</span><div><b>6:45 · Goodie bags</b><span>See you next year!</span></div></li>
-      </ul>
-    </section>
-
-    <section class="card reveal" id="rsvpCard">
-      <h2>Will you come?</h2>
-      <form id="rsvp">
-        <div class="yn">
-          <div><input type="radio" name="go" id="yes" value="yes" checked><label for="yes">Yes, we'll be there</label></div>
-          <div><input type="radio" name="go" id="no" value="no"><label for="no">Sorry, can't make it</label></div>
+  <section class="deep">
+    <div class="wrap">
+      <span class="sec-k">Save the date</span>
+      <h2 class="sec-h">The big day</h2>
+      <div class="card reveal" id="details">
+        <div class="when">
+          <div class="cal"><b>DEC</b><strong>20</strong><em>Saturday</em></div>
+          <div><h3>4:00 to 7:00 PM</h3><p>Little Leaf Play Café<br>80 Feet Road, Koramangala, Bengaluru</p></div>
         </div>
-        <label>Your name<input name="name" required placeholder="e.g. Kabir's family" autocomplete="name"></label>
-        <div class="row">
-          <label>Kids<input name="kids" type="number" min="0" max="10" value="1"></label>
-          <label>Adults<input name="adults" type="number" min="0" max="10" value="1"></label>
+        <div class="flip" id="flip">
+          <div><b data-k="d"><span>0</span></b><small>days</small></div>
+          <div><b data-k="h"><span>0</span></b><small>hours</small></div>
+          <div><b data-k="m"><span>0</span></b><small>min</small></div>
+          <div><b data-k="s"><span>0</span></b><small>sec</small></div>
         </div>
-        <button class="btn" type="submit">Send RSVP</button>
-      </form>
-      <div class="thanks"><b id="thx">Yay! See you there 🎉</b><p>Aanya's parents got your reply.</p></div>
-      <div class="btns"><a class="btn btn--wa" id="wa" target="_blank" rel="noopener" href="#">Share on WhatsApp</a></div>
-    </section>
+        <div class="btns">
+          <button class="btn btn--gold" id="cal" type="button">Add to calendar</button>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Koramangala%2C%20Bengaluru">Directions</a>
+        </div>
+      </div>
 
-    <footer>Made with <a href="https://zigsmotion.com" target="_blank" rel="noopener">ZigsMotion</a> · Invitation maker</footer>
-  </div>
+      <span class="sec-k">Dress code</span>
+      <h2 class="sec-h">Come wild</h2>
+      <div class="card reveal">
+        <div class="theme">
+          <div>
+            <svg viewBox="0 0 60 60"><circle cx="30" cy="32" r="22" fill="#C4621F"/><circle cx="30" cy="34" r="16" fill="#F2B248"/><circle cx="24" cy="31" r="2.5" fill="#2B1B12"/><circle cx="36" cy="31" r="2.5" fill="#2B1B12"/><path d="M27 38 h6 l-3 3z" fill="#5A2E1E"/></svg>
+            Animal prints &amp; ears
+          </div>
+          <div>
+            <svg viewBox="0 0 60 60"><path d="M30 54 C10 40 12 16 30 6 C48 16 50 40 30 54Z" fill="#45B36B"/><path d="M30 54 V10" stroke="#2F8F5B" stroke-width="2.5"/></svg>
+            <div class="swatch"><i style="background:#2F8F5B"></i><i style="background:#F2B84B"></i><i style="background:#FF7E6B"></i></div>
+            Green, gold &amp; coral
+          </div>
+          <div>
+            <svg viewBox="0 0 60 60"><rect x="10" y="24" width="40" height="28" rx="5" fill="#7B5CF0"/><rect x="7" y="18" width="46" height="10" rx="4" fill="#9A80F5"/><rect x="27" y="18" width="6" height="34" fill="#FFE29A"/><path d="M30 18 C20 6 12 14 22 18 M30 18 C40 6 48 14 38 18" stroke="#FFE29A" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+            Gifts optional, hugs required
+          </div>
+        </div>
+      </div>
+
+      <span class="sec-k">The plan</span>
+      <h2 class="sec-h">A wild afternoon</h2>
+      <div class="card reveal">
+        <ul class="plan" id="plan">
+          <li style="--i:0"><span class="dot"><svg viewBox="0 0 40 40"><ellipse cx="20" cy="16" rx="11" ry="13" fill="#FF7E6B"/><path d="M20 29 q-3 6 0 10" stroke="#999" stroke-width="1.5" fill="none"/><ellipse cx="16" cy="11" rx="3" ry="4" fill="#fff" opacity=".6"/></svg></span><div><b>4:00 · Welcome &amp; face paint</b><span>Pick your animal</span></div></li>
+          <li style="--i:1"><span class="dot"><svg viewBox="0 0 40 40" fill="#C98A1E"><ellipse cx="20" cy="26" rx="8" ry="6.5"/><circle cx="11" cy="17" r="3.6"/><circle cx="17" cy="12" r="3.6"/><circle cx="23" cy="12" r="3.6"/><circle cx="29" cy="17" r="3.6"/></svg></span><div><b>4:30 · Treasure hunt</b><span>Find the golden paws</span></div></li>
+          <li style="--i:2"><span class="dot"><svg viewBox="0 0 40 40"><rect x="10" y="16" width="20" height="16" rx="2" fill="#23201C"/><rect x="6" y="14" width="28" height="4" rx="2" fill="#23201C"/><rect x="10" y="20" width="20" height="3" fill="#FF7E6B"/><path d="M26 10 l2-4 l2 4 l4 1 l-4 2 l-2 4 l-2-4 l-4-2z" fill="#F2B84B"/></svg></span><div><b>5:15 · Magic show</b><span>With Magician Monty</span></div></li>
+          <li style="--i:3"><span class="dot"><svg viewBox="0 0 40 40"><rect x="8" y="20" width="24" height="14" rx="3" fill="#FFB3C1"/><rect x="8" y="20" width="24" height="5" rx="2" fill="#fff"/><g fill="#F2B84B"><rect x="12" y="12" width="2" height="8"/><rect x="19" y="12" width="2" height="8"/><rect x="26" y="12" width="2" height="8"/></g><g fill="#FF7E6B"><circle cx="13" cy="10" r="2"/><circle cx="20" cy="10" r="2"/><circle cx="27" cy="10" r="2"/></g></svg></span><div><b>6:00 · Cake time</b><span>Five candles, one big wish</span></div></li>
+          <li style="--i:4"><span class="dot"><svg viewBox="0 0 40 40"><path d="M10 16 h20 l-2 18 h-16z" fill="#45B36B"/><path d="M14 16 c0-6 12-6 12 0" stroke="#2F8F5B" stroke-width="2.5" fill="none"/><circle cx="20" cy="25" r="3" fill="#FFE29A"/></svg></span><div><b>6:45 · Goodie bags</b><span>See you next year!</span></div></li>
+        </ul>
+      </div>
+
+      <span class="sec-k">RSVP by 15 December</span>
+      <h2 class="sec-h">Will you come?</h2>
+      <div class="card reveal mood-yes" id="rsvpCard">
+        <div class="rsvp-head">
+          <svg class="mascot" viewBox="0 0 100 100" aria-hidden="true">
+            <circle cx="50" cy="52" r="42" fill="#B9581B"/>
+            <circle cx="22" cy="24" r="10" fill="#F2B248"/><circle cx="78" cy="24" r="10" fill="#F2B248"/>
+            <circle cx="50" cy="55" r="33" fill="#F2B248"/>
+            <ellipse cx="50" cy="68" rx="18" ry="13" fill="#FFE6B3"/>
+            <ellipse cx="38" cy="50" rx="4.5" ry="6" fill="#2B1B12"/><ellipse cx="62" cy="50" rx="4.5" ry="6" fill="#2B1B12"/>
+            <circle cx="39.5" cy="47.5" r="1.6" fill="#fff"/><circle cx="63.5" cy="47.5" r="1.6" fill="#fff"/>
+            <path d="M44 61 h12 l-6 6z" fill="#5A2E1E"/>
+            <path id="mouth" d="M38 70 Q50 86 62 70" stroke="#5A2E1E" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path class="tear" d="M34 58 q-3 6 0 8 q3-2 0-8z" fill="#7CC6FF"/>
+          </svg>
+          <div><h3>Aanya is asking!</h3><p>Tell her if you'll make it.</p></div>
+        </div>
+        <form id="rsvp">
+          <div class="yn">
+            <div><input type="radio" name="go" id="yes" value="yes" checked><label for="yes">Yes, we'll roar in!</label></div>
+            <div><input type="radio" name="go" id="no" value="no"><label for="no">Sorry, can't make it</label></div>
+          </div>
+          <label>Your name<input name="name" required placeholder="e.g. Kabir's family" autocomplete="name"></label>
+          <div class="row">
+            <label>Kids<input name="kids" type="number" min="0" max="10" value="1"></label>
+            <label>Adults<input name="adults" type="number" min="0" max="10" value="2"></label>
+          </div>
+          <button class="btn btn--gold" type="submit">Send RSVP</button>
+        </form>
+        <div class="thanks"><b id="thx">Roar-some! See you there</b><p>Aanya's parents got your reply.</p></div>
+        <div class="btns"><a class="btn btn--wa" id="wa" target="_blank" rel="noopener" href="#">Share on WhatsApp</a></div>
+      </div>
+
+      <footer>Made with <a href="https://zigsmotion.com" target="_blank" rel="noopener">ZigsMotion</a> · Invitation maker</footer>
+    </div>
+  </section>
 </main>
 
 <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/" } }</script>
@@ -217,143 +480,160 @@
 
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const PARTY = new Date("2026-12-20T16:00:00+05:30");
+  const narrow = innerWidth < 640;
 
-  // ── 3D balloons ──
-  const canvas = document.getElementById("sky");
+  // the lion's mane: scallops around the head
+  const mane = document.getElementById("mane");
+  for (let i = 0; i < 16; i++) {
+    const a = (i / 16) * Math.PI * 2;
+    const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    c.setAttribute("cx", 110 + Math.cos(a) * 62); c.setAttribute("cy", 104 + Math.sin(a) * 62); c.setAttribute("r", 20);
+    mane.appendChild(c);
+  }
+
+  // ── 3D balloons rising behind the hills ──
+  const scene3 = new THREE.Scene();
+  const canvas = document.getElementById("balloons");
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  const scene = new THREE.Scene();
   const pmrem = new THREE.PMREMGenerator(renderer);
-  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+  scene3.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+  scene3.environmentIntensity = 0.55;
   const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
-  camera.position.set(0, 0, 14);
-  scene.add(new THREE.HemisphereLight(0xffffff, 0xffd9c4, 1.1));
-  const sun = new THREE.DirectionalLight(0xffffff, 1.6); sun.position.set(4, 6, 8); scene.add(sun);
-
-  // Balloon: a lathe profile with a knot, plus a soft curly string.
+  camera.position.set(0, 0, 16);
+  scene3.add(new THREE.AmbientLight(0xffffff, 0.5));
+  const key = new THREE.DirectionalLight(0xfff0d6, 2.4); key.position.set(-4, 6, 8); scene3.add(key);
   const prof = [];
-  for (let i = 0; i <= 24; i++) {
-    const t = i / 24, a = t * Math.PI;
-    const r = Math.sin(a) * (1 - 0.18 * t) * 0.95;
-    prof.push(new THREE.Vector2(Math.max(r, 0.001), -Math.cos(a) * 1.18 + 0.12 * t));
-  }
-  const balloonGeo = new THREE.LatheGeometry(prof, 48);
-  const knotGeo = new THREE.ConeGeometry(0.11, 0.18, 16);
-  const COLORS = [0xff8a7a, 0xffc845, 0x2ec4a0, 0x5aa9f6, 0x8c6cf2, 0xff6fa8];
-  const narrow = innerWidth < 640;
-  const N = narrow ? 9 : 14;
+  for (let i = 0; i <= 24; i++) { const t = i / 24, a = t * Math.PI; prof.push(new THREE.Vector2(Math.max(Math.sin(a) * (1 - 0.18 * t) * 0.95, 0.001), -Math.cos(a) * 1.18 + 0.12 * t)); }
+  const bGeo = new THREE.LatheGeometry(prof, 40);
+  const kGeo = new THREE.ConeGeometry(0.11, 0.18, 12);
+  const COLS = [0xff5a45, 0xffb21e, 0x1fbf72, 0x2f8ef5, 0x7b5cf0, 0xff4f9a];
   const balloons = [];
+  const N = reduce ? 0 : narrow ? 7 : 12;
   for (let i = 0; i < N; i++) {
     const g = new THREE.Group();
-    const col = COLORS[i % COLORS.length];
-    const mat = new THREE.MeshPhysicalMaterial({ color: col, roughness: 0.18, clearcoat: 1, clearcoatRoughness: 0.08, sheen: 0.4, sheenColor: 0xffffff });
-    const b = new THREE.Mesh(balloonGeo, mat); b.rotation.x = Math.PI; g.add(b);
-    const k = new THREE.Mesh(knotGeo, mat); k.position.y = -1.2; g.add(k);
-    const pts = [];
-    for (let j = 0; j < 30; j++) pts.push(new THREE.Vector3(Math.sin(j * 0.6) * 0.08, -1.28 - j * 0.09, Math.cos(j * 0.6) * 0.04));
-    const str = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), new THREE.LineBasicMaterial({ color: 0x9b8fb0, transparent: true, opacity: 0.55 }));
-    g.add(str);
-    const s = 0.55 + Math.random() * 0.45;
-    g.scale.setScalar(s);
-    g.userData = { x: (Math.random() - 0.5) * (narrow ? 7 : 14), y: Math.random() * 16 - 8, z: -Math.random() * 6, speed: 0.25 + Math.random() * 0.35, phase: Math.random() * 6.28 };
-    scene.add(g); balloons.push(g);
+    const mat = new THREE.MeshPhysicalMaterial({ color: COLS[i % COLS.length], roughness: 0.22, clearcoat: 1, clearcoatRoughness: 0.06 });
+    const b = new THREE.Mesh(bGeo, mat); b.rotation.x = Math.PI; g.add(b);
+    const k = new THREE.Mesh(kGeo, mat); k.position.y = -1.2; g.add(k);
+    const pts = []; for (let j = 0; j < 26; j++) pts.push(new THREE.Vector3(Math.sin(j * 0.6) * 0.08, -1.28 - j * 0.09, 0));
+    g.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), new THREE.LineBasicMaterial({ color: 0x8a6f60, transparent: true, opacity: 0.5 })));
+    g.scale.setScalar(0.5 + Math.random() * 0.4);
+    g.userData = { x: (Math.random() - 0.5) * (narrow ? 8 : 16), y: Math.random() * 16 - 9, z: -Math.random() * 5, sp: 0.35 + Math.random() * 0.3, ph: Math.random() * 6.28 };
+    scene3.add(g); balloons.push(g);
   }
-
-  let px = 0, py = 0;
-  addEventListener("pointermove", (e) => { px = e.clientX / innerWidth - 0.5; py = e.clientY / innerHeight - 0.5; });
-  addEventListener("deviceorientation", (e) => { if (e.gamma != null) { px = e.gamma / 90; py = (e.beta - 45) / 90; } });
-
-  function size() { const w = innerWidth, h = innerHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); }
+  function size() { const r = canvas.getBoundingClientRect(); renderer.setSize(r.width, r.height, false); camera.aspect = r.width / r.height; camera.updateProjectionMatrix(); }
   size(); addEventListener("resize", size);
 
-  const clock = new THREE.Clock();
-  let scrollY = 0; addEventListener("scroll", () => { scrollY = window.scrollY; }, { passive: true });
-  function tick() {
-    const t = clock.getElapsedTime(), dt = Math.min(clock.getDelta(), 0.05);
-    for (const g of balloons) {
-      const u = g.userData;
-      if (!reduce) u.y += u.speed * 0.016;
-      if (u.y > 9) { u.y = -9; u.x = (Math.random() - 0.5) * (narrow ? 7 : 14); }
-      g.position.set(u.x + Math.sin(t * 0.6 + u.phase) * 0.4 + px * 1.2, u.y - scrollY * 0.004, u.z);
-      g.rotation.z = Math.sin(t * 0.8 + u.phase) * 0.12;
-      g.rotation.y = t * 0.2 + u.phase;
+  // parallax: pointer or phone tilt
+  let px = 0, py = 0, tx = 0, ty = 0;
+  addEventListener("pointermove", (e) => { tx = e.clientX / innerWidth - 0.5; ty = e.clientY / innerHeight - 0.5; });
+  addEventListener("deviceorientation", (e) => { if (e.gamma != null) { tx = Math.max(-0.5, Math.min(0.5, e.gamma / 60)); ty = Math.max(-0.5, Math.min(0.5, (e.beta - 40) / 60)); } });
+  const layers = [...document.querySelectorAll("[data-depth]")].map((el) => ({ el, d: +el.dataset.depth }));
+  let visible = true;
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(document.getElementById("scene"));
+
+  let last = performance.now();
+  function frame(now) {
+    const dt = Math.min((now - last) / 1000, 0.05); last = now;
+    if (visible) {
+      px += (tx - px) * 0.06; py += (ty - py) * 0.06;
+      const sy = window.scrollY;
+      for (const l of layers) l.el.style.translate = `${-px * 40 * l.d}px ${-py * 20 * l.d + sy * l.d * 0.25}px`;
+      const t = now / 1000;
+      for (const g of balloons) {
+        const u = g.userData;
+        u.y += u.sp * dt;
+        if (u.y > 9) { u.y = -9; u.x = (Math.random() - 0.5) * (narrow ? 8 : 16); }
+        g.position.set(u.x + Math.sin(t * 0.6 + u.ph) * 0.4 - px * 1.5, u.y, u.z);
+        g.rotation.z = Math.sin(t * 0.8 + u.ph) * 0.12;
+        g.rotation.y = t * 0.3 + u.ph;
+      }
+      if (N) renderer.render(scene3, camera);
     }
-    camera.position.x += (px * 0.8 - camera.position.x) * 0.05;
-    camera.position.y += (-py * 0.6 - camera.position.y) * 0.05;
-    camera.lookAt(0, 0, 0);
-    renderer.render(scene, camera);
-    requestAnimationFrame(tick);
+    requestAnimationFrame(frame);
   }
-  tick();
+  requestAnimationFrame(frame);
 
   // ── confetti ──
   const cc = document.getElementById("confetti"), cx = cc.getContext("2d");
   let bits = [];
-  function burst(n = 140) {
+  function burst(n = 160, y = 0.45) {
     if (reduce) return;
     cc.width = innerWidth * devicePixelRatio; cc.height = innerHeight * devicePixelRatio;
-    const cols = ["#FF8A7A", "#FFC845", "#2EC4A0", "#5AA9F6", "#8C6CF2", "#FF6FA8"];
-    for (let i = 0; i < n; i++) bits.push({ x: innerWidth / 2, y: innerHeight * 0.45, vx: (Math.random() - 0.5) * 14, vy: -Math.random() * 15 - 4, r: Math.random() * 6.28, vr: (Math.random() - 0.5) * 0.4, w: 6 + Math.random() * 6, h: 4 + Math.random() * 6, c: cols[i % cols.length], life: 0 });
-    if (bits.length === n) requestAnimationFrame(drawBits);
+    const cols = ["#FF7E6B", "#F2B84B", "#45B36B", "#4FA8F0", "#7B5CF0", "#FFE29A"];
+    const was = bits.length;
+    for (let i = 0; i < n; i++) bits.push({ x: innerWidth / 2 + (Math.random() - 0.5) * 60, y: innerHeight * y, vx: (Math.random() - 0.5) * 16, vy: -Math.random() * 16 - 4, r: Math.random() * 6.28, vr: (Math.random() - 0.5) * 0.4, w: 6 + Math.random() * 7, h: 4 + Math.random() * 6, c: cols[i % cols.length], round: Math.random() < 0.3, life: 0 });
+    if (!was) requestAnimationFrame(drawBits);
   }
   function drawBits() {
     cx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
     cx.clearRect(0, 0, innerWidth, innerHeight);
-    bits = bits.filter((b) => b.life < 200 && b.y < innerHeight + 40);
+    bits = bits.filter((b) => b.life < 220 && b.y < innerHeight + 40);
     for (const b of bits) {
-      b.vy += 0.32; b.vx *= 0.99; b.x += b.vx; b.y += b.vy; b.r += b.vr; b.life++;
-      cx.save(); cx.translate(b.x, b.y); cx.rotate(b.r); cx.fillStyle = b.c; cx.fillRect(-b.w / 2, -b.h / 2, b.w, b.h * Math.abs(Math.cos(b.r * 2))); cx.restore();
+      b.vy += 0.3; b.vx *= 0.99; b.x += b.vx; b.y += b.vy; b.r += b.vr; b.life++;
+      cx.save(); cx.translate(b.x, b.y); cx.rotate(b.r); cx.fillStyle = b.c;
+      if (b.round) { cx.beginPath(); cx.arc(0, 0, b.w / 2.4, 0, 6.28); cx.fill(); } else cx.fillRect(-b.w / 2, -b.h / 2, b.w, b.h * Math.abs(Math.cos(b.r * 2)));
+      cx.restore();
     }
     if (bits.length) requestAnimationFrame(drawBits); else cx.clearRect(0, 0, innerWidth, innerHeight);
   }
 
-  // ── open the envelope ──
-  const env = document.getElementById("env");
+  // ── tear the ticket ──
+  const intro = document.getElementById("intro");
   const open = () => {
-    if (env.classList.contains("open")) return;
-    env.classList.add("open");
-    setTimeout(() => burst(), 650);
-    setTimeout(() => { env.classList.add("gone"); document.body.classList.remove("locked"); }, 900);
+    if (intro.classList.contains("torn")) return;
+    intro.classList.add("torn");
+    setTimeout(() => burst(180), 250);
+    setTimeout(() => { intro.classList.add("gone"); document.body.classList.remove("locked"); }, 600);
   };
-  document.getElementById("open").addEventListener("click", open);
-  env.addEventListener("click", open);
-  if (new URLSearchParams(location.search).has("open")) { env.style.display = "none"; env.classList.add("open", "gone"); document.body.classList.remove("locked"); }
+  intro.addEventListener("click", open);
+  if (new URLSearchParams(location.search).has("open")) { intro.style.display = "none"; document.body.classList.remove("locked"); }
 
-  // ── scroll reveal ──
-  const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.18 });
+  // ── reveals ──
+  const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.15 });
   document.querySelectorAll(".reveal, .plan").forEach((el) => io.observe(el));
 
-  // ── countdown ──
-  const cells = Object.fromEntries([...document.querySelectorAll("#count b")].map((b) => [b.dataset.k, b]));
+  // ── flip countdown ──
+  const cells = Object.fromEntries([...document.querySelectorAll("#flip b")].map((b) => [b.dataset.k, b]));
+  const pad = (n) => String(n).padStart(2, "0");
   function count() {
     let s = Math.max(0, Math.floor((PARTY - Date.now()) / 1000));
-    const d = Math.floor(s / 86400); s -= d * 86400;
-    const h = Math.floor(s / 3600); s -= h * 3600;
-    const m = Math.floor(s / 60); s -= m * 60;
-    cells.d.textContent = d; cells.h.textContent = h; cells.m.textContent = m; cells.s.textContent = s;
+    const v = { d: Math.floor(s / 86400) };
+    s -= v.d * 86400; v.h = Math.floor(s / 3600); s -= v.h * 3600; v.m = Math.floor(s / 60); v.s = s - v.m * 60;
+    for (const k of ["d", "h", "m", "s"]) {
+      const txt = k === "d" ? String(v[k]) : pad(v[k]);
+      const span = cells[k].firstElementChild;
+      if (span.textContent !== txt) { span.textContent = txt; cells[k].classList.remove("go"); void cells[k].offsetWidth; cells[k].classList.add("go"); }
+    }
   }
   count(); setInterval(count, 1000);
 
-  // ── add to calendar (.ics) ──
+  // ── calendar ──
   document.getElementById("cal").addEventListener("click", () => {
     const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//ZigsMotion//Invite//EN", "BEGIN:VEVENT", "UID:aanya5@zigsmotion.site",
-      "DTSTAMP:20261111T000000Z", "DTSTART:20261220T103000Z", "DTEND:20261220T133000Z", "SUMMARY:Aanya's 5th birthday party",
-      "LOCATION:Little Leaf Play Café, 80 Feet Road, Koramangala, Bengaluru", "DESCRIPTION:Jungle safari theme. Games, magic show and cake!", "END:VEVENT", "END:VCALENDAR"].join("\r\n");
-    const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(new Blob([ics], { type: "text/calendar" })), download: "aanya-turns-5.ics" });
-    a.click();
+      "DTSTAMP:20261111T000000Z", "DTSTART:20261220T103000Z", "DTEND:20261220T133000Z", "SUMMARY:Aanya's Jungle Party (she turns 5!)",
+      "LOCATION:Little Leaf Play Café, 80 Feet Road, Koramangala, Bengaluru", "DESCRIPTION:Jungle safari theme. Treasure hunt, magic show and cake!", "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+    Object.assign(document.createElement("a"), { href: URL.createObjectURL(new Blob([ics], { type: "text/calendar" })), download: "aanya-jungle-party.ics" }).click();
   });
 
-  // ── RSVP (sample: kept on this device) + share ──
+  // ── RSVP: the lion reacts to your answer ──
+  const card = document.getElementById("rsvpCard"), mouth = document.getElementById("mouth");
+  const mood = (yes) => {
+    card.classList.remove("mood-yes", "mood-no"); void card.offsetWidth;
+    card.classList.add(yes ? "mood-yes" : "mood-no");
+    mouth.setAttribute("d", yes ? "M38 70 Q50 86 62 70" : "M40 78 Q50 70 60 78");
+  };
+  document.querySelectorAll("input[name=go]").forEach((r) => r.addEventListener("change", () => { if (r.checked) mood(r.value === "yes"); }));
   document.getElementById("rsvp").addEventListener("submit", (e) => {
     e.preventDefault();
     const f = new FormData(e.target);
     try { localStorage.setItem("aanya5-rsvp", JSON.stringify(Object.fromEntries(f))); } catch {}
-    document.getElementById("thx").textContent = f.get("go") === "yes" ? "Yay! See you there 🎉" : "We'll miss you! 💛";
-    document.getElementById("rsvpCard").classList.add("done");
-    if (f.get("go") === "yes") burst(120);
+    const yes = f.get("go") === "yes";
+    document.getElementById("thx").textContent = yes ? "Roar-some! See you there" : "We'll miss you!";
+    card.classList.add("done"); mood(yes);
+    if (yes) burst(140, 0.6);
   });
-  document.getElementById("wa").href = "https://wa.me/?text=" + encodeURIComponent("You're invited to Aanya's 5th birthday jungle party! 🦁🎈 Sat 20 Dec, 4 PM. " + location.href.split("?")[0]);
+  document.getElementById("wa").href = "https://wa.me/?text=" + encodeURIComponent("🦁 You're invited to Aanya's Jungle Party! She turns 5. Sat 20 Dec, 4 PM, Koramangala. " + location.href.split("?")[0]);
 </script>
 </body>
 </html>
